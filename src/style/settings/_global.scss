@@ -1,0 +1,11 @@
+body {
+  min-width: var(--min-site-width);
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}

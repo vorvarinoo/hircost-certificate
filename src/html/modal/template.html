@@ -1,0 +1,24 @@
+<div class="hystmodal modal"
+     id="@template-modal"
+     aria-hidden="true">
+  <div class="hystmodal__wrap">
+    <div class="hystmodal__window"
+         role="dialog"
+         aria-modal="true">
+      <div class="modal__content">
+        <button class="modal__close"
+                type="button"
+                aria-label="Закрыть окно"
+                data-hystclose>
+          <svg class="modal__close-icon"
+               width="32"
+               height="32"
+               aria-hidden="true">
+            <use xlink:href="assets/img/sprite.svg#cross"></use>
+          </svg>
+        </button>
+        @include('@template.html')
+      </div>
+    </div>
+  </div>
+</div>

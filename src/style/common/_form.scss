@@ -1,0 +1,54 @@
+.form-input {
+  @include input-base;
+
+  &.is-invalid {
+    border-color: var(--error, #BD0300);
+  }
+
+  &--area {
+    @include area-base;
+  }
+}
+
+.form-change {
+  $this: &;
+
+  &__input {
+    @include visually-hidden;
+
+    &:checked {
+      &+#{$this}__text {
+        &::before {
+          background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 7.76471L5.48 12L15 3' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
+        }
+      }
+    }
+
+    &.is-invalid {
+      &+#{$this}__text {
+        &::before {
+          border-color: var(--error, #BD0300);
+        }
+      }
+    }
+  }
+
+  &__text {
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 6px;
+      background-color: transparent;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 15px 15px;
+      border: 1px solid var(--black);
+      transform: translateY(2px);
+      margin-right: 4px;
+    }
+  }
+}
