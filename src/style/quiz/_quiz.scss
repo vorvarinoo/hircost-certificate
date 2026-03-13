@@ -1,0 +1,7 @@
+.quiz__screen {
+  display: none;
+
+  &.isActive {
+    display: block;
+  }
+}
