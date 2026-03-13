@@ -7,8 +7,7 @@
 </head>
 
 <body class="site">
-  <div inert=""
-       id="site-top"></div>
+  <div inert="" id="site-top"></div>
   <div class="site__container">
     @include('html/header/index.html')
-    <main class="site__content">
+    <main class="site__content@if (context.mainClass){ @mainClass}">
