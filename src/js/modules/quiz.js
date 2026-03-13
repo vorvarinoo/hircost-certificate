@@ -1,8 +1,8 @@
-let currentStep = 1;
-const totalSteps = 3;
-
 const screens = document.querySelectorAll(".quiz__screen.screen");
 const steps = document.querySelectorAll(".timeline__step");
+
+let currentStep = 1;
+const totalSteps = screens.length;
 
 const updateUI = (step) => {
   screens.forEach((screen) => {
