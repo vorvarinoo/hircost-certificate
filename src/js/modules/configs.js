@@ -25,26 +25,26 @@ const modalConfig = {
 
 const validateConfig = {
   justValidate: {
-    errorFieldCssClass: "is-invalid",
-    errorLabelCssClass: "error-massage",
+    errorFieldCssClass: 'is-invalid',
+    errorLabelCssClass: 'error-massage',
     errorLabelStyle: {
-      color: "var(--error)",
-      marginTop: "6px",
-      fontSize: "12px",
-      textAlign: "left",
+      color: 'var(--error)',
+      marginTop: '6px',
+      fontSize: '12px',
+      textAlign: 'left',
     },
-    errorFormClass: "shaked",
+    errorFormClass: 'shaked',
     errorTimeout: 1500,
   },
   errorTimeout: 1500,
   mask: {
-    bodyMask: " (___) ___ __ __",
+    bodyMask: ' (___) ___ __ __',
   },
 };
 
 const observerConfig = {
   scrollTop: {
-    rootMargin: "600px",
+    rootMargin: '600px',
     threshold: 1,
   },
 };
