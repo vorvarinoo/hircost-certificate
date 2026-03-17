@@ -5,3 +5,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.button-navigation {
+  font-size: 16px;
+  text-align: center;
+  padding: 14px 25px;
+  border-radius: 100px;
+}
+
+.button-navigation--prev {
+  background-color: var(--white);
+}
+
+.button-navigation--next {
+  color: var(--white);
+  background-color: var(--black);
+}

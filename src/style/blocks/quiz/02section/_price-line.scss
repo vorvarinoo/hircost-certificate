@@ -1,0 +1,37 @@
+.price-line {
+  @include list-reset;
+
+  display: flex;
+  border-radius: 1000px;
+  padding: 4px 8px;
+  background-color: var(--white);
+
+  &__item {
+    margin: 0 -10px;
+
+    & label {
+      cursor: pointer;
+    }
+    & input {
+      @include visually-hidden;
+    }
+
+    & span {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 1.2;
+      padding: 14px;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & input:checked + span {
+      background-color: #313131;
+      color: var(--white);
+    }
+  }
+}

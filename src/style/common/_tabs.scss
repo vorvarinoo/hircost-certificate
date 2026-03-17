@@ -1,0 +1,24 @@
+.tabs {
+  &__buttons {
+    @include list-reset;
+    display: flex;
+
+    & li:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+
+  &__button {
+    @include btn-reset;
+
+    color: var(--black);
+    border-radius: 33px;
+    padding: 10px 24px;
+    background-color: var(--white);
+
+    &.is-selected {
+      color: var(--white);
+      background-color: var(--black);
+    }
+  }
+}

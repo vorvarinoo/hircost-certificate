@@ -1,8 +1,11 @@
 .form-input {
   @include input-base;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  outline: none;
 
   &.is-invalid {
-    border-color: var(--error, #BD0300);
+    border-color: var(--error, #bd0300);
   }
 
   &--area {
@@ -17,7 +20,7 @@
     @include visually-hidden;
 
     &:checked {
-      &+#{$this}__text {
+      & + #{$this}__text {
         &::before {
           background-image: url("data:image/svg+xml,%3Csvg width='16' height='15' viewBox='0 0 16 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 7.76471L5.48 12L15 3' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
         }
@@ -25,9 +28,9 @@
     }
 
     &.is-invalid {
-      &+#{$this}__text {
+      & + #{$this}__text {
         &::before {
-          border-color: var(--error, #BD0300);
+          border-color: var(--error, #bd0300);
         }
       }
     }

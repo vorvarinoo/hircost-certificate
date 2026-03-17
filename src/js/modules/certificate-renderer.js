@@ -7,13 +7,13 @@ import certificateState from './state.js';
 const renderConfig = [
   // Обновление цвета фона
   {
-    selector: '[data-checked-background-color]',
+    selector: '[data-checked-background]',
     field: 'color',
     updater: (el, value) => {
       if (value) {
         el.style.setProperty('--checked-background-color', value);
       }
-    }
+    },
   },
   // Обновление изображения
   {
@@ -24,8 +24,8 @@ const renderConfig = [
       if (imgEl && value) {
         imgEl.src = value;
       }
-    }
-  }
+    },
+  },
 ];
 
 const getNestedValue = (obj, path) => {
@@ -33,8 +33,8 @@ const getNestedValue = (obj, path) => {
 };
 
 const render = (data) => {
-  renderConfig.forEach(config => {
-    document.querySelectorAll(config.selector).forEach(el => {
+  renderConfig.forEach((config) => {
+    document.querySelectorAll(config.selector).forEach((el) => {
       const value = getNestedValue(data, config.field);
       if (value !== undefined && value !== null) {
         config.updater(el, value);

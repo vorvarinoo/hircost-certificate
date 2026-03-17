@@ -1,0 +1,39 @@
+.input-wish-picker {
+  cursor: pointer;
+  & input {
+    @include visually-hidden;
+  }
+
+  &__text {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--black);
+    padding: 10px 24px;
+    border-radius: 33px;
+    background-color: #efefef;
+
+    &--none {
+      color: rgba(0, 0, 0, 0.5);
+      border: 1px solid #eeeeee;
+      background-color: transparent;
+    }
+  }
+
+  & input:checked + span {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+}
+
+.input-wish-text {
+  border-radius: 33px;
+  color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #eeeeee;
+  background-color: transparent;
+  padding: 10px 24px;
+  outline: none;
+}

@@ -14,11 +14,28 @@ const initSliders = () => {
     '[data-slider-image]',
     Object.assign(sliderConfig.default, {
       modules: [EffectCoverflow],
+      on: {
+        progress: function () {
+          this.slides.forEach((slide) => {
+            const progress = Math.abs(slide.progress);
+            const img = slide.querySelector(
+              '.create-design__img:not(.create-design__img--preview)',
+            );
+            const previewImg = slide.querySelector(
+              '.create-design__img--preview',
+            );
+
+            if (img) img.style.opacity = progress;
+            if (previewImg) previewImg.style.opacity = 1 - progress;
+          });
+        },
+      },
     }),
   );
 
   if (certificateDesignSlider) {
     window.swiperInstances['certificate-design'] = certificateDesignSlider;
+    certificateDesignSlider.update();
   }
 };
 
