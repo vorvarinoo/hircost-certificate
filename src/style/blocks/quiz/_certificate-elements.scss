@@ -1,0 +1,36 @@
+/**
+ * Стили для элементов сертификата (Certificate Elements)
+ * Отвечает за отображение сертификата на всех экранах квиза
+ */
+
+/**
+ * Элементы с фоном сертификата
+ * Используют CSS переменную --checked-background-color для отображения цвета
+ * Эта переменная обновляется автоматически при выборе цвета
+ */
+[data-checked-background-color] {
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  margin: 20px auto;
+  background: var(--checked-background-color, transparent);
+  transition: background-color var(--duration-default);
+  border-radius: 4px;
+}
+
+/**
+ * Элементы с изображением сертификата
+ * Отображают изображение выбранного дизайна
+ */
+[data-certificate-image] {
+  display: block;
+  margin: 20px auto;
+  max-width: 400px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}

@@ -1,11 +1,22 @@
 const sliderConfig = {
   default: {
-    slidesPerView: 1,
     spaceBetween: 30,
     watchSlidesProgress: true,
     navigation: {
       prevEl: '[data-to-slide="prev"]',
       nextEl: '[data-to-slide="next"]',
+    },
+    loop: true,
+    effect: 'coverflow',
+    slidesPerView: 3,
+    centeredSlides: true,
+    grabCursor: true,
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 10,
+      depth: 200,
+      modifier: 1.5,
+      slideShadows: false,
     },
   },
 };

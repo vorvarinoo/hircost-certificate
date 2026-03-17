@@ -1,0 +1,20 @@
+.timeline {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__step {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    &.completed,
+    &.isActive {
+      color: #000000;
+    }
+
+    & button {
+      @include btn-reset;
+      color: inherit;
+    }
+  }
+}
