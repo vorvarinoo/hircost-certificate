@@ -7,10 +7,15 @@
 
   &__header {
     flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: vh(40, 825) vw(48, 1440);
   }
 
   &__content {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   &__footer {

@@ -7,17 +7,21 @@
 }
 
 .button-navigation {
+  position: absolute;
   font-size: 16px;
   text-align: center;
   padding: 14px 25px;
   border-radius: 100px;
+  bottom: vh(60, 825);
 }
 
 .button-navigation--prev {
+  left: vw(96, 1440);
   background-color: var(--white);
 }
 
 .button-navigation--next {
+  right: vw(96, 1440);
   color: var(--white);
   background-color: var(--black);
 }

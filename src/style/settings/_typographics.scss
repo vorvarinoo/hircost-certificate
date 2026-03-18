@@ -2,14 +2,17 @@
   font-family: $primary-font, Arial, Helvetica, sans-serif;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   @extend %primary-font;
 
-  font-size: 1.6rem;
   line-height: 1.3;
   font-weight: 400;
   color: var(--black);
-  background-color: var(--white);
+  background-color: var(--black);
 }
 
 a {

@@ -12,6 +12,10 @@
       color: #000000;
     }
 
+    &:not(:last-child) {
+      margin-right: vw(32, 1440);
+    }
+
     & button {
       @include btn-reset;
       color: inherit;

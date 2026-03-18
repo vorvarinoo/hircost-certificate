@@ -1,10 +1,19 @@
 .price-line {
-  @include list-reset;
-
-  display: flex;
+  @include scrollbar;
+  max-width: vw(970, 1440);
+  margin-bottom: vh(30, 825);
+  margin-top: auto;
+  overflow-x: auto;
   border-radius: 1000px;
   padding: 4px 8px;
   background-color: var(--white);
+
+  &__list {
+    @include list-reset;
+
+    display: flex;
+    width: 100%;
+  }
 
   &__item {
     margin: 0 -10px;
@@ -17,6 +26,7 @@
     }
 
     & span {
+      box-sizing: border-box;
       display: inline-block;
       font-size: 20px;
       line-height: 1.2;

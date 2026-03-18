@@ -8,7 +8,7 @@ const sliderConfig = {
     },
     loop: true,
     effect: 'coverflow',
-    slidesPerView: 3,
+    slidesPerView: 'auto',
     centeredSlides: true,
     grabCursor: true,
     coverflowEffect: {

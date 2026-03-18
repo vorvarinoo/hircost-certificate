@@ -1,9 +1,10 @@
 .create-design__colors {
   @include list-reset;
   display: flex;
-
+  margin: 0 auto;
+  margin-bottom: vw(24, 1440);
   & li:not(:last-child) {
-    margin-right: 12px;
+    margin-right: vw(12, 1440);
   }
 }
 

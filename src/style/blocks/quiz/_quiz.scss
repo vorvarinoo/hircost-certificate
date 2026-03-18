@@ -1,7 +1,29 @@
-.quiz__screen {
-  display: none;
+.quiz {
+  &__screen {
+    display: none;
+    &.isActive {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+  }
 
-  &.isActive {
-    display: block;
+  &__top {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    &--row {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &--ai-center {
+      align-items: center;
+    }
+
+    &--ji-center {
+      justify-content: center;
+    }
   }
 }

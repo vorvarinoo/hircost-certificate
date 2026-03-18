@@ -1,0 +1,11 @@
+@function rem($px) {
+  @return $px / 16 * 1rem;
+}
+
+@function vw($px, $width: 1920) {
+  @return calc(round(calc($px / $width) * 100vw * 10000) / 10000);
+}
+
+@function vh($px, $height: 1080) {
+  @return calc(round(calc($px / $height) * 100vh * 10000) / 10000);
+}
