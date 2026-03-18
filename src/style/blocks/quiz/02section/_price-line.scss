@@ -1,12 +1,23 @@
 .price-line {
-  @include scrollbar;
   max-width: vw(970, 1440);
   margin-bottom: vh(30, 825);
   margin-top: auto;
   overflow-x: auto;
   border-radius: 1000px;
-  padding: 4px 8px;
+  padding: 4px 12px;
   background-color: var(--white);
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &--grabbing {
+    cursor: grabbing;
+  }
 
   &__list {
     @include list-reset;

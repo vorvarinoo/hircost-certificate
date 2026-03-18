@@ -11,6 +11,7 @@ import { initSliders } from './modules/slider.js';
 import { validateForms } from './modules/validate.js';
 import { initQuiz } from './modules/quiz.js';
 import { initTabs } from './modules/tabs.js';
+import { initPriceLineDrag } from './modules/price-line-drag.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteSettings();
@@ -21,5 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     initQuiz();
     initTabs();
+    initPriceLineDrag();
   });
 });
