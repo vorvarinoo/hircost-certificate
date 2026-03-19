@@ -12,6 +12,7 @@ import { validateForms } from './modules/validate.js';
 import { initQuiz } from './modules/quiz.js';
 import { initTabs } from './modules/tabs.js';
 import { initPriceLineDrag } from './modules/price-line-drag.js';
+import { initCertificatePrice } from './modules/certificate-price.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteSettings();
@@ -23,5 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initQuiz();
     initTabs();
     initPriceLineDrag();
+    initCertificatePrice();
   });
 });
