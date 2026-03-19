@@ -1,3 +1,12 @@
+.form-inputs {
+  display: grid;
+  gap: 16px;
+
+  &--col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .form-input {
   @include input-base;
   color: rgba(0, 0, 0, 0.5);
@@ -10,6 +19,10 @@
 
   &--area {
     @include area-base;
+  }
+
+  &--col-span {
+    grid-column: 1/2 span;
   }
 }
 

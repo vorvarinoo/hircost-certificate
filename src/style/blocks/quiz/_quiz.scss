@@ -16,6 +16,13 @@
     &--row {
       flex-direction: row;
       align-items: flex-start;
+      --max-width: #{vw(960, 1440)};
+      --padding-side: #{vw(240, 1440)};
+
+      width: min(var(--max-width), 100% - (var(--padding-side) * 2));
+      margin: 0 auto;
+
+      gap: 18px;
     }
 
     &--ai-center {

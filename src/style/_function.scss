@@ -1,11 +1,17 @@
+@use "sass:math";
+
 @function rem($px) {
-  @return $px / 16 * 1rem;
+  @return math.div($px, 16) * 1rem;
 }
 
 @function vw($px, $width: 1920) {
-  @return calc(round(calc($px / $width) * 100vw * 10000) / 10000);
+  $value: math.div($px, $width) * 100;
+  $rounded: math.div(math.round($value * 10000), 10000);
+  @return $rounded * 1vw;
 }
 
 @function vh($px, $height: 1080) {
-  @return calc(round(calc($px / $height) * 100vh * 10000) / 10000);
+  $value: math.div($px, $height) * 100;
+  $rounded: math.div(math.round($value * 10000), 10000);
+  @return $rounded * 1vh;
 }
