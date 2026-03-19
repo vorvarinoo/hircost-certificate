@@ -3,7 +3,7 @@
   gap: 16px;
 
   &--col {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: rem(84) 1fr;
   }
 }
 

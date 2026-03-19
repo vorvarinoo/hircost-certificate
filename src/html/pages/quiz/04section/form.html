@@ -14,8 +14,25 @@
     <div data-jtabs="panel">
       <div class="form-inputs form-inputs--col">
         <input class="form-input form-input--col-span" type="date" placeholder="23 Октября 2025">
-        <input class="form-input" type="time" placeholder="12:00">
-        <input class="form-input" type="text" placeholder="">
+        <select data-choice-time-delivery name="Время" aria-label="Выбрать время доставки">
+          <option value="00:00">00:00</option>
+          <option value="12:00">12:00</option>
+          <option value="13:00">13:00</option>
+          <option value="14:00">14:00</option>
+          <option value="15:00">15:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:00">18:00</option>
+          <option value="19:00">19:00</option>
+          <option value="20:00">20:00</option>
+          <option value="21:00">21:00</option>
+          <option value="22:00">22:00</option>
+          <option value="23:00">23:00</option>
+        </select>
+        <select data-choice-time-zone name="Часовой пояс" aria-label="Выбор часового пояса">
+          <option value="Московский">Московский</option>
+          <option value="Калининградсий">Калининградсий (МСК-1)</option>
+          <option value="Калининградсий">Самарский (МСК+1)</option>
+        </select>
       </div>
     </div>
   </div>

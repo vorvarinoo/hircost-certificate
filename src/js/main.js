@@ -13,6 +13,7 @@ import { initQuiz } from './modules/quiz.js';
 import { initTabs } from './modules/tabs.js';
 import { initPriceLineDrag } from './modules/price-line-drag.js';
 import { initCertificatePrice } from './modules/certificate-price.js';
+import { initChoices } from './modules/choices.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteSettings();
@@ -25,5 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initPriceLineDrag();
     initCertificatePrice();
+    initChoices();
   });
 });
