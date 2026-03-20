@@ -25,3 +25,14 @@
   color: var(--white);
   background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
 }
+
+.button-navigation--save {
+  display: none;
+  right: vw(96, 1440);
+  color: var(--white);
+  background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
+
+  &.is-visible {
+    display: inline-flex;
+  }
+}

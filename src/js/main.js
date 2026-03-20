@@ -11,6 +11,7 @@ import { initSliders } from './modules/slider.js';
 import { validateForms } from './modules/validate.js';
 import { initQuiz } from './modules/quiz.js';
 import { initTabs } from './modules/tabs.js';
+import { initEditSection } from './modules/edit-section.js';
 import { initPriceLineDrag } from './modules/price-line-drag.js';
 import { initCertificatePrice } from './modules/certificate-price.js';
 import { initChoices } from './modules/choices.js';
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSliders();
     initQuiz();
     initTabs();
+    initEditSection();
     initPriceLineDrag();
     initCertificatePrice();
     initChoices();

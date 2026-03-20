@@ -46,6 +46,8 @@ const updateUI = (step) => {
       nextButton.classList.remove('hidden');
     }
   }
+
+  document.dispatchEvent(new CustomEvent('quiz-step-changed', { detail: { step } }));
 };
 
 const goToStep = (step) => {
