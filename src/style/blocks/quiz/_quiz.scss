@@ -55,10 +55,12 @@
       font-size: 40px;
       line-height: 1.2;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     &--03 {
-      margin: rem(16) 0 rem(40);
+      margin: rem(16) 0 rem(50);
     }
   }
 }
