@@ -32,5 +32,27 @@
     &--ji-center {
       justify-content: center;
     }
+
+    &--grow-0 {
+      flex-grow: 0;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    @include media-min($lg) {
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    @include media-min($lg) {
+      font-size: 40px;
+      line-height: 1.2;
+      text-align: center;
+    }
   }
 }

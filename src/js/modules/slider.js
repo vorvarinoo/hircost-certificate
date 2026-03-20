@@ -1,5 +1,5 @@
 import { initSlider } from './utils.js';
-import { EffectCoverflow } from 'swiper/modules';
+import { EffectCoverflow, Navigation } from 'swiper/modules';
 import { sliderConfig } from './configs.js';
 
 window.swiperInstances = window.swiperInstances || {};
@@ -13,7 +13,7 @@ const initSliders = () => {
   const certificateDesignSlider = initSlider(
     '[data-slider-image]',
     Object.assign(sliderConfig.default, {
-      modules: [EffectCoverflow],
+      modules: [EffectCoverflow, Navigation],
       on: {
         progress: function () {
           this.slides.forEach((slide) => {

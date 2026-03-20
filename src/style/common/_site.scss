@@ -7,9 +7,13 @@
 
   &__header {
     flex-shrink: 0;
-    display: flex;
+    display: none;
     justify-content: space-between;
     padding: vh(40, 825) vw(48, 1440);
+
+    @include media-min($lg) {
+      display: flex;
+    }
   }
 
   &__content {

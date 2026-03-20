@@ -1,14 +1,15 @@
 .price {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
   --max-width: #{vw(992, 1440)};
   --padding-side: #{vw(230, 1440)};
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: min(var(--max-width), 100% - (var(--padding-side) * 2));
   margin: 0 auto;
   box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: rem(30);
 
   &__count {
     text-align: center;
@@ -25,7 +26,6 @@
 }
 .price-line {
   max-width: vw(970, 1440);
-  margin-bottom: vh(30, 825);
   overflow-x: auto;
   border-radius: 1000px;
   padding: 4px 12px;

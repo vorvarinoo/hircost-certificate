@@ -1,6 +1,9 @@
 .create-design {
   & .swiper-slide {
-    max-width: vw(450, 1440);
+    max-width: vw(218, 375);
+    @include media-min($lg) {
+      max-width: vw(450, 1440);
+    }
   }
 
   &__navigation {
@@ -32,7 +35,7 @@
   &__background {
     width: 100%;
     border-radius: 24px;
-    max-width: vw(450, 1440);
+    max-width: vw(218, 375);
     height: 90%;
     box-shadow: 0 98px 30px -76px rgba(194, 189, 243, 0.9);
     background: var(--checked-background-color);
@@ -40,6 +43,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include media-min($xl) {
+      max-width: vw(450, 1440);
+    }
   }
 
   &__certificate {
@@ -51,8 +58,29 @@
     background: var(--checked-background-color);
     flex: 1 1 100%;
 
+    &--max-width {
+      max-width: vw(450, 1440);
+      height: 90%;
+    }
+
     & img {
       display: flex;
     }
   }
+}
+
+[data-to-slide] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+[data-to-slide='prev'] {
+  left: rem(50);
+}
+
+[data-to-slide='next'] {
+  right: rem(50);
 }

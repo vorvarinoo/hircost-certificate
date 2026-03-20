@@ -1,6 +1,5 @@
 const sliderConfig = {
   default: {
-    spaceBetween: 30,
     watchSlidesProgress: true,
     navigation: {
       prevEl: '[data-to-slide="prev"]',
@@ -11,12 +10,27 @@ const sliderConfig = {
     slidesPerView: 'auto',
     centeredSlides: true,
     grabCursor: true,
-    coverflowEffect: {
-      rotate: 0,
-      stretch: 10,
-      depth: 200,
-      modifier: 1.5,
-      slideShadows: false,
+    breakpoints: {
+      320: {
+        spaceBetween: 100,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 10,
+          depth: 300,
+          modifier: 1.5,
+          slideShadows: false,
+        },
+      },
+      1024: {
+        spaceBetween: 30,
+        coverflowEffect: {
+          depth: 200,
+          rotate: 0,
+          stretch: 10,
+          modifier: 1.5,
+          slideShadows: false,
+        },
+      },
     },
   },
 };

@@ -12,7 +12,7 @@
   text-align: center;
   padding: 14px 25px;
   border-radius: 100px;
-  bottom: vh(60, 825);
+  bottom: rem(60);
 }
 
 .button-navigation--prev {
@@ -23,5 +23,5 @@
 .button-navigation--next {
   right: vw(96, 1440);
   color: var(--white);
-  background-color: var(--black);
+  background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
 }

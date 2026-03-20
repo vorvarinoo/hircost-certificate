@@ -1,12 +1,27 @@
 .wish {
   margin: 0 auto;
-  padding-bottom: vh(60, 825);
+  margin-bottom: rem(60);
+  display: grid;
+  gap: 18px;
+
+  &__row {
+    display: flex;
+
+    &--jsb {
+      justify-content: space-between;
+    }
+  }
 }
 
 .input-wish-picker {
+  display: inline-block;
   cursor: pointer;
   & input {
     @include visually-hidden;
+  }
+
+  &:not(:last-child) {
+    margin-right: 6px;
   }
 
   &__text {
@@ -36,9 +51,11 @@
 
 .input-wish-text {
   border-radius: 33px;
-  color: rgba(0, 0, 0, 0.5);
   border: 1px solid #eeeeee;
   background-color: transparent;
   padding: 10px 24px;
   outline: none;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #949494;
 }
