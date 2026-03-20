@@ -37,6 +37,15 @@ const updateUI = (step) => {
   } else {
     document.documentElement.style.setProperty('--body-background', '#ffffff');
   }
+
+  const nextButton = document.querySelector('[data-next]');
+  if (nextButton) {
+    if (step >= 5) {
+      nextButton.classList.add('hidden');
+    } else {
+      nextButton.classList.remove('hidden');
+    }
+  }
 };
 
 const goToStep = (step) => {

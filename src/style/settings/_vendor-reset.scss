@@ -2,6 +2,10 @@
   height: var(--swiper-height, 100%);
 }
 
+.hidden {
+  display: none !important;
+}
+
 .hystmodal {
   &__window {
     width: calc(100% - 30px);
