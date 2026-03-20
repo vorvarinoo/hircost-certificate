@@ -31,6 +31,12 @@ const updateUI = (step) => {
     stepItem.el.classList.toggle('isActive', stepItem.num === activeStep);
     stepItem.el.classList.toggle('completed', stepItem.num < activeStep);
   }
+
+  if (step >= 2) {
+    document.documentElement.style.setProperty('--body-background', '#f3f2ff');
+  } else {
+    document.documentElement.style.setProperty('--body-background', '#ffffff');
+  }
 };
 
 const goToStep = (step) => {
