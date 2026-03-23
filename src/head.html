@@ -9,5 +9,6 @@
 <body class="site">
   <div inert="" id="site-top"></div>
   <div class="site__container">
-    @include('html/header/index.html')
+    @if(context.timeline){@include('html/header/index.html', {timeline: true})}
+    @if(!context.timeline){@include('html/header/index.html', {timeline: false})}
     <main class="site__content@if (context.mainClass){ @mainClass}">

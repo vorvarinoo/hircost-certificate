@@ -1,134 +1,138 @@
-# AGENTS.md - Руководство по разработке для Hircost Certificate
+# AGENTS.md - Development Guide for Hircost Certificate
 
-Этот документ содержит важную информацию для агентных инструментов кодирования, работающих в этом репозитории.
+This document provides essential information for agentic coding tools working in this repository.
 
-## Команды сборки, линтинга и тестирования
+## Build, Lint, and Test Commands
 
-### Доступные npm-скрипты
-- `npm start` - Запуск сервера разработки с BrowserSync и горячей перезагрузкой
-- `npm run build` - Production сборка (минифицированная, оптимизированная)
-- `npm run static` - Сборка статического сайта с минификацией HTML
-- `npm run final` - Запустить проверку линтерами, затем сборку
-- `npm run lint` - Запустить оба линтера (ESLint и Stylelint)
-- `npm run eslint` - Проверить только JavaScript код
-- `npm run stylelint` - Проверить только SCSS код
-- `npm run deploy` - Деплой на GitHub Pages (использует `npm run static`)
+### npm scripts
+- `npm start` - Start dev server (BrowserSync with hot reload)
+- `npm run build` - Production build (minified, optimized)
+- `npm run static` - Static site build with HTML minification
+- `npm run final` - Run linters, then build
+- `npm run lint` - Run both ESLint and Stylelint
+- `npm run eslint` - Lint JavaScript only
+- `npm run eslint -- --fix` - Auto-fix ESLint issues
+- `npm run stylelint` - Lint SCSS only
+- `npm run stylelint -- --fix` - Auto-fix Stylelint issues
+- `npm run deploy` - Deploy to GitHub Pages (uses `npm run static`)
 
-### Тестирование
-**Тестовый фреймворк пока не настроен.** Для запуска отдельных тестов необходимо:
-1. Добавить тестовый фреймворк (Jest, Vitest или Mocha)
-2. Настроить тестовые скрипты в package.json
-3. Использовать паттерны типа `npm test -- имя_файла.test.js` или селекторы фреймворка
+### Testing
+**No test framework is configured.** To run tests, you must first:
+1. Install a test framework (Jest, Vitest, or Mocha recommended)
+2. Add test scripts to package.json
+3. Use patterns like `npm test -- filename.test.js` for single tests
 
-## Рекомендации по стилю кода
+## Code Style Guidelines
 
-### JavaScript/TypeScript
-- **Модульная система**: ES6 модули (`import`/`export`)
-- **Отступы**: 2 пробела (из .editorconfig)
-- **Кавычки**: Одинарные (`'`) - контролируется ESLint
-- **Точки с запятой**: Обязательны - контролируется ESLint
-- **Запятые**: Использовать для многострочных объектов/массивов
-- **Именование**:
-  - Переменные/функции: `camelCase`
-  - Классы/PascalCase: `PascalCase`
-  - Константы: `UPPER_SNAKE_CASE` для настоящих констант
-  - Файлы: `kebab-case.js` (например, `validate.js`)
-- **Порядок импортов**:
-  1. Внешние библиотеки (npm пакеты)
-  2. Внутренние модули (относительные пути)
-  3. Импорты с побочными эффектами в конце
-- **Обработка ошибок**: Используйте try-catch для асинхронных операций; передавайте осмысленные ошибки
-- **Глобальные объекты**: Библиотечные глобальные объекты объявлены в `.eslintrc` (строки 11-19)
+### JavaScript
+- **Module system**: ES6 modules (`import`/`export`)
+- **Indentation**: 2 spaces (enforced by .editorconfig)
+- **Quotes**: Single quotes (`'`) - enforced by ESLint
+- **Semicolons**: Required - enforced by ESLint
+- **Naming conventions**:
+  - Variables/functions: `camelCase`
+  - Classes: `PascalCase`
+  - Constants: `UPPER_SNAKE_CASE` (true constants only)
+  - Files: `kebab-case.js` (e.g., `validate.js`)
+- **Import order**:
+  1. External libraries (npm packages)
+  2. Internal modules (relative paths)
+  3. Side-effect imports last
+- **Error handling**: Use try-catch for async operations; pass meaningful errors
+- **Global objects**: Library globals declared in `.eslintrc` (lines 11-19)
+- **Code style**: No alerts, limited console (warn/error only), no trailing spaces
 
 ### SCSS/CSS
-- **Синтаксис**: SCSS (файлы `.scss`)
-- **Отступы**: 2 пробела
-- **Именование селекторов**: kebab-case, предпочтительна BEM методология (`block__element--modifier`)
-- **Порядок свойств**: Группировать связанные свойства; внутри групп сортировать по алфавиту
-- **Переменные**:
-  - CSS кастомные свойства: `--var-name` в `:root` (из `_vars.scss`)
-  - SCSS переменные: `$variable-name` (миксины, брейкпоинты)
-- **Вложенность**: Ограничить 3 уровнями
-- **Комментарии**: Используйте `//` для SCSS, `/* */` для CSS вывода
+- **Syntax**: SCSS (`.scss` files)
+- **Indentation**: 2 spaces
+- **Selector naming**: kebab-case, BEM methodology preferred (`block__element--modifier`)
+- **Property order**: Group related properties; sort alphabetically within groups
+- **Variables**:
+  - CSS custom properties: `--var-name` in `:root` (see `_vars.scss`)
+  - SCSS variables: `$variable-name` (for mixins, breakpoints)
+- **Nesting**: Limit to 3 levels
+- **Comments**: Use `//` for SCSS, `/* */` for CSS output
+- **Color notation**: Long hex, legacy functions, number alpha notation
 
 ### HTML
-- **Включения шаблонов**: Используйте `@include('html/path/file.html')` для частичных шаблонов
-- **Форматирование**: Автоформатирование gulp-html-beautify во время сборки
-- **Атрибуты**: Двойные кавычки, булевы атрибуты без значения
-- **Отступы**: 2 пробела
-- **Самозакрывающиеся**: Void элементы не требуют закрывающего слеша в HTML5
+- **Template includes**: Use `@include('html/path/file.html')` for partials
+- **Formatting**: Auto-formatted by gulp-html-beautify during build
+- **Attributes**: Double quotes, boolean attributes without values
+- **Indentation**: 2 spaces
+- **Self-closing**: Void elements don't need closing slash in HTML5
 
-### Структура файлов
+## Project Structure
 ```
 src/
 ├── js/
-│   ├── main.js                 # Точка входа
-│   └── modules/                # Функциональные модули
+│   ├── main.js                 # Entry point
+│   └── modules/                # Feature modules
 │       ├── modal.js
 │       ├── slider.js
-│       └── utils.js
+│       ├── utils.js
+│       └── configs.js          # Configuration objects
 ├── style/
-│   ├── _vars.scss              # CSS кастомные свойства + SCSS переменные
-│   ├── _mixins.scss            # Переиспользуемые миксины
-│   ├── _fonts.scss             # Объявления шрифтов через @font-face
-│   ├── settings/               # Глобальные стили
-│   ├── common/                 # Переиспользуемые компоненты
-│   ├── blocks/                 # Блоки, специфичные для страниц
-│   └── main.scss               # Точка входа (7 импортов)
+│   ├── _vars.scss              # CSS custom properties + SCSS vars
+│   ├── _mixins.scss            # Reusable mixins
+│   ├── _fonts.scss             # @font-face declarations
+│   ├── settings/               # Global styles
+│   ├── common/                 # Reusable components
+│   ├── blocks/                 # Page-specific blocks
+│   └── main.scss               # Entry point (8 imports)
 ├── html/
-│   ├── head/                   # Части шапки
-│   ├── header/                 # Части хедера
-│   ├── footer/                 # Части футера
-│   ├── common/                 # Общие компоненты (timeline и т.д.)
-│   └── pages/                  # Шаблоны для конкретных страниц
-└── vendor/                     # Сторонние библиотеки (JS/CSS)
+│   ├── head/                   # Head parts
+│   ├── header/                 # Header parts
+│   ├── footer/                 # Footer parts
+│   ├── common/                 # Shared components
+│   └── pages/                  # Page-specific templates
+├── img/
+│   ├── static/                 # Images processed by webpack
+│   └── sprite/                 # SVG sprites (auto-generated)
+└── vendor/                     # Third-party libraries
 ```
 
-### Конфигурационные файлы
-- **.eslintrc**: Правила ESLint (расширяет eslint:recommended)
-- **.stylelintrc.json**: Stylelint с пресетом standard-scss
-- **.editorconfig**: Отступы (2 пробела), окончания строк LF, кодировка UTF-8
-- **gulpfile.js**: Сборка использует ES модули
+## Configuration Files
+- **.eslintrc**: ESLint rules (extends eslint:recommended)
+- **.stylelintrc.json**: Stylelint with standard-scss preset
+- **.editorconfig**: Indentation (2 spaces), line endings (LF), UTF-8
+- **gulpfile.js**: Build system using ES modules
 
-### Импорты и зависимости
-- **JS**: Используйте именованные импорты из npm пакетов когда доступны
-- **Vendor библиотеки**: Помещайте исходники в `src/vendor/` или импортируйте из npm
-- **Глобальные ESLint**: Добавляйте любые новые глобальные экземпляры библиотек в секцию globals `.eslintrc`
-- **Циклические зависимости**: Контролируются через `circular-dependency-plugin` в webpack
+## Import and Dependency Guidelines
+- **JS**: Use named imports from npm packages when available
+- **Vendor libraries**: Place sources in `src/vendor/` or import from npm
+- **Global ESLint**: Add new global library instances to `.eslintrc` globals section
+- **Circular dependencies**: Detected via `circular-dependency-plugin` in webpack
 
-### Поддержка браузеров
-На основе `package.json` browserslist: `defaults, last 1 versions, not IE 11`
+## Browser Support
+Based on package.json browserslist: `defaults, last 1 versions, not IE 11`
 
-### Ключевые соглашения
-- **DOM готов**: Оборачивайте инициализацию в `DOMContentLoaded` (см. `main.js:12`)
-- **Window load**: Используйте для тяжелых операций после загрузки всех ресурсов (см. `main.js:15`)
-- **Data атрибуты**: Используйте `data-*` для конфигурации и таргетинга
-- **Делегирование событий**: Предпочитайте при обработке множества динамических элементов
-- **Debouncing**: Используйте утилиту `debounce` из `utils.js` для resize/scroll
-- **Модальные окна/слайдеры**: Инициализируйте через wrapper функции в модулях
+## Key Conventions
+- **DOM ready**: Wrap initialization in `DOMContentLoaded` (see `main.js:19`)
+- **Window load**: Use for heavy operations after all resources load (see `main.js:22`)
+- **Data attributes**: Use `data-*` for configuration and targeting
+- **Event delegation**: Prefer when handling multiple dynamic elements
+- **Debouncing**: Use `debounce` utility from `utils.js` for resize/scroll
+- **Modals/sliders**: Initialize via wrapper functions in modules
+- **State management**: Use reactive patterns where appropriate
+- **Form validation**: Centralized in validate.js module
 
-### Примечания по процессу сборки
-- Webpack обрабатывает JS (транспиляция Babel) и SCSS (Sass → CSS)
-- Vendor JS конкатенируется отдельно, затем объединяется с app JS
-- Изображения: static → webpack asset module; остальные копируются через gulp
-- SVG спрайты: помещайте в `src/img/sprite/`, авто-генерация через gulp-svg-sprite
+## Build Process Notes
+- Webpack processes JS (Babel transpilation) and SCSS (Sass → CSS)
+- Vendor JS concatenated separately, then merged with app JS
+- Images: static → webpack asset module; others copied via gulp
+- SVG sprites: Place in `src/img/sprite/`, auto-generated via gulp-svg-sprite
+- CSS custom properties used for theming (already in `_vars.scss`)
 
-### Исправление линтинга
-Автоисправляемые проблемы:
-- `npm run eslint -- --fix`
-- `npm run stylelint -- --fix`
+## Performance Considerations
+- Use CSS custom properties for theming
+- Lazy load images where appropriate
+- Debounce scroll/resize handlers
+- Avoid heavy synchronous operations on main thread
+- Focus-visible polyfill included for accessibility
 
-### Отсутствие тестов
-В проекте нет настроенного тестового фреймворка. Если тесты нужны, рассмотрите добавление:
-- **Unit тесты**: Jest или Vitest для JS модулей
-- **E2E тесты**: Cypress или Playwright
-- **Визуальная регрессия**: Не настроена
-
-### Git Workflow
-Не навязывается здесь, но стандартный: feature branches, PR reviews, no direct commits to main.
-
-### Советы по производительности
-- Используйте CSS кастомные свойства для темизации (уже в `_vars.scss`)
-- Ленивая загрузка изображений где уместно
-- Debounce для scroll/resize обработчиков
-- Избегайте тяжелых синхронных операций на основном потоке
+## File Organization Best Practices
+- Keep modules focused on single responsibility
+- Group related styles in same directory
+- Use index files for importing related modules
+- Place configuration in separate config files
+- Utility functions in dedicated utils module

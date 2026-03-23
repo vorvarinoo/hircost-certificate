@@ -1,11 +1,14 @@
 .quiz {
   &__screen {
-    display: none;
     &.isActive {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
+  }
+
+  &.screen {
+    display: none;
   }
 
   &__top {
