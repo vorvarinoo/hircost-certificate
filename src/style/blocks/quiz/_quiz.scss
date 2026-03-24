@@ -41,6 +41,10 @@
     &--grow-0 {
       flex-grow: 0;
     }
+
+    &--get-certificate {
+      --max-width: #{vw(500, 1440)};
+    }
   }
 
   &__row {
