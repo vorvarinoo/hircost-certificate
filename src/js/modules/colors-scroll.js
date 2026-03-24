@@ -9,7 +9,7 @@ const initColorsScroll = () => {
 
   const updateButtonsState = () => {
     const isAtStart = colorsContainer.scrollLeft <= 0;
-    const isAtEnd = colorsContainer.scrollLeft + colorsContainer.clientWidth >= colorsContainer.scrollWidth - 1;
+    const isAtEnd = Math.ceil(colorsContainer.scrollLeft + colorsContainer.clientWidth) >= colorsContainer.scrollWidth - 2;
 
     prevBtn.style.opacity = isAtStart ? '0.3' : '1';
     prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
