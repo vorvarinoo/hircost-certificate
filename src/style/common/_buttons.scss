@@ -48,3 +48,18 @@
     display: inline-flex;
   }
 }
+
+.btn-close {
+  color: var(--black);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include media-min($lg) {
+    opacity: 0.6;
+    width: 32px;
+    height: 32px;
+  }
+}
