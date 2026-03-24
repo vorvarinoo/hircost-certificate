@@ -10,6 +10,7 @@ const sliderConfig = {
     slidesPerView: 'auto',
     centeredSlides: true,
     grabCursor: true,
+    speed: 500,
     breakpoints: {
       320: {
         spaceBetween: 100,
