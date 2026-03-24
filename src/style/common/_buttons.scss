@@ -12,19 +12,30 @@
   text-align: center;
   padding: 14px 25px;
   border-radius: 100px;
-  bottom: rem(60);
-  z-index: 3;
+  bottom: rem(30);
+  z-index: 2;
+
+  @include media-min($lg) {
+    bottom: rem(60);
+  }
 }
 
 .button-navigation--prev {
-  left: vw(96, 1440);
+  left: rem(16);
   background-color: var(--white);
+
+  @include media-min($lg) {
+    left: vw(96, 1440);
+  }
 }
 
 .button-navigation--next {
-  right: vw(96, 1440);
+  right: rem(16);
   color: var(--white);
   background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
+  @include media-min($lg) {
+    right: vw(96, 1440);
+  }
 }
 
 .button-navigation--save {

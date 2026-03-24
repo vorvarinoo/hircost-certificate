@@ -9,7 +9,7 @@ const sliderConfig = {
     speed: 500,
     breakpoints: {
       320: {
-        spaceBetween: 50,
+        spaceBetween: 70,
         coverflowEffect: {
           rotate: 0,
           stretch: 10,

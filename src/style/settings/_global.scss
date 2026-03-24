@@ -17,7 +17,7 @@ img {
   position: absolute;
   left: 0;
   top: 0;
-
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -25,7 +25,15 @@ img {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
+.background1-3 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -36,7 +44,7 @@ img {
 
   pointer-events: none;
 
-  z-index: 3;
+  z-index: 1;
 }
 
 .background2-2 {
@@ -45,5 +53,5 @@ img {
   top: 0;
 
   pointer-events: none;
-  z-index: 3;
+  z-index: 1;
 }

@@ -1,4 +1,5 @@
 .site {
+  overflow: hidden;
   &__container {
     display: flex;
     flex-direction: column;
@@ -7,10 +8,12 @@
 
   &__header {
     flex-shrink: 0;
-    padding: rem(16) rem(20);
+    padding: rem(20) rem(20);
+    margin-bottom: rem(18);
 
     @include media-min($lg) {
       padding: vh(40, 825) vw(48, 1440);
+      margin-bottom: 0;
     }
   }
 

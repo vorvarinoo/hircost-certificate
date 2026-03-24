@@ -1,6 +1,6 @@
 .create-design__colors {
   order: 1;
-  padding: 0 rem(8) 0 rem(24);
+  padding: 0 0 0 rem(24);
 
   @include media-min($lg) {
     order: 0;
@@ -10,11 +10,21 @@
 }
 
 .colors {
-  display: flex;
   @include list-reset;
 
+  display: flex;
+  overflow-x: auto;
+  padding: rem(12) 0 rem(12) rem(8);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   & li:not(:last-child) {
-    margin-right: vw(16, 1440);
+    margin-right: vw(10, 375);
+    @include media-min($lg) {
+      margin-right: vw(16, 1440);
+    }
   }
 }
 
@@ -64,4 +74,10 @@
 .swiper-slide {
   display: flex;
   justify-content: center;
+}
+
+.colors-buttons {
+  display: flex;
+  gap: rem(8);
+  padding-right: rem(16);
 }
