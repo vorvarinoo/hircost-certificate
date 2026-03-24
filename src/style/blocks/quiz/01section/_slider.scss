@@ -99,6 +99,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
   @include media-min($lg) {
     position: absolute;
     top: 50%;

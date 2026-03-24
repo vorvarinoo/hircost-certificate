@@ -2,8 +2,8 @@ const sliderConfig = {
   default: {
     watchSlidesProgress: true,
     navigation: {
-      prevEl: document.querySelectorAll('[data-to-slide="prev"]'),
-      nextEl: document.querySelectorAll('[data-to-slide="next"]'),
+      prevEl: '[data-to-slide="prev"]',
+      nextEl: '[data-to-slide="next"]',
     },
     loop: true,
     effect: 'coverflow',
