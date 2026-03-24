@@ -51,7 +51,6 @@ const initSliders = () => {
 
   if (certificateDesignSlider) {
     window.swiperInstances['certificate-design'] = certificateDesignSlider;
-    bindExternalControls(certificateDesignSlider, 'certificate-design');
     certificateDesignSlider.update();
   }
 };
