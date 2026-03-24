@@ -1,6 +1,5 @@
 .create-design__colors {
   order: 1;
-  padding: 0 0 0 rem(24);
 
   @include media-min($lg) {
     order: 0;
@@ -25,6 +24,11 @@
     @include media-min($lg) {
       margin-right: vw(16, 1440);
     }
+  }
+
+  @include media-max($lg) {
+    padding-left: rem(32);
+    padding-right: rem(32);
   }
 }
 
@@ -80,4 +84,25 @@
   display: flex;
   gap: rem(8);
   padding-right: rem(16);
+
+  & > div {
+    width: 32px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    @include media-min($lg) {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      cursor: pointer;
+    }
+  }
+}
+
+.colors-subtitle {
+  padding-left: rem(24);
 }
