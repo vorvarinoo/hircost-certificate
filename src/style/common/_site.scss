@@ -9,7 +9,7 @@
   &__header {
     flex-shrink: 0;
     padding: rem(20) rem(20);
-    margin-bottom: rem(18);
+    margin-bottom: rem(28);
 
     @include media-min($lg) {
       padding: vh(40, 825) vw(48, 1440);
