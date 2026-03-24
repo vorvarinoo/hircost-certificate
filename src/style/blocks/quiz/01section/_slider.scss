@@ -1,6 +1,9 @@
 .create-design {
+  height: min-content;
   & .swiper-slide {
-    max-width: vw(218, 375);
+    height: min-content;
+    display: flex;
+    max-width: vw(250, 375);
     @include media-min($lg) {
       max-width: vw(450, 1440);
     }
@@ -12,8 +15,12 @@
   }
   &__card {
     position: relative;
-    padding-bottom: 70%;
+    padding-bottom: 64%;
     width: 100%;
+
+    @include media-min($lg) {
+      padding-bottom: 63%;
+    }
   }
 
   &__img {
@@ -21,29 +28,44 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     object-fit: contain;
     display: flex;
+    height: min-content;
     justify-content: center;
     align-items: center;
     transition: 0.5s ease-in-out;
 
-    &--preview {
+    &--detail {
       opacity: 0;
+    }
+
+    &--preview {
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include media-min($lg) {
+        & img {
+          transform: scale(1.5);
+        }
+      }
     }
   }
 
   &__background {
     width: 100%;
     border-radius: 24px;
-    max-width: vw(218, 375);
-    height: 90%;
+    max-width: vw(250, 375);
+    height: 100%;
     box-shadow: 0 98px 30px -76px rgba(194, 189, 243, 0.9);
     background: var(--checked-background-color);
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+
+    @include media-min($lg) {
+      max-width: vw(450, 1440);
+    }
 
     @include media-min($xl) {
       max-width: vw(450, 1440);
@@ -71,11 +93,19 @@
 }
 
 [data-to-slide] {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  @include media-min($lg) {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    cursor: pointer;
+  }
 }
 
 [data-to-slide='prev'] {
@@ -84,4 +114,17 @@
 
 [data-to-slide='next'] {
   right: rem(50);
+}
+
+.slider-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.slider-navigation {
+  color: var(--black);
+
+  @include media-min($lg) {
+    color: var(--white);
+  }
 }

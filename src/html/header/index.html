@@ -1,16 +1,36 @@
 <header class="site__header">
-  <div class="logo">
-    <svg width="181" height="26" aria-hidden="true">
-      <use xlink:href="assets/img/sprite.svg#logo"></use>
-    </svg>
+  <div class="d-none d-lg-flex justify-content-between align-content-center">
+    <div class="logo">
+      <svg width="181" height="26" aria-hidden="true">
+        <use xlink:href="assets/img/sprite.svg#logo"></use>
+      </svg>
+    </div>
+
+    @if(context.timeline){@include('../common/timeline.html')}
+
+    <div>
+      <a href="/">
+        <svg width="16" height="16" aria-hidden="true">
+          <use xlink:href="assets/img/sprite.svg#cross"></use>
+        </svg></a>
+    </div>
   </div>
 
-  @if(context.timeline){@include('../common/timeline.html')}
+  <div class="d-lg-none d-flex justify-content-between align-content-center">
+    <div>
+      <a href="/">
+        <svg width="16" height="16" aria-hidden="true">
+          <use xlink:href="assets/img/sprite.svg#cross"></use>
+        </svg></a>
+    </div>
 
-  <div>
-    <a href="/">
-      <svg width="16" height="16" aria-hidden="true">
-        <use xlink:href="assets/img/sprite.svg#cross"></use>
-      </svg></a>
+    <div>Выберите дизайн</div>
+
+    <div>
+      <a href="/">
+        <svg width="16" height="16" aria-hidden="true">
+          <use xlink:href="assets/img/sprite.svg#cross"></use>
+        </svg></a>
+    </div>
   </div>
 </header>

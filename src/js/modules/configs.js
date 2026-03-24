@@ -2,8 +2,8 @@ const sliderConfig = {
   default: {
     watchSlidesProgress: true,
     navigation: {
-      prevEl: '[data-to-slide="prev"]',
-      nextEl: '[data-to-slide="next"]',
+      prevEl: document.querySelector('[data-to-slide="prev"]'),
+      nextEl: document.querySelector('[data-to-slide="next"]'),
     },
     loop: true,
     effect: 'coverflow',
@@ -13,7 +13,7 @@ const sliderConfig = {
     speed: 500,
     breakpoints: {
       320: {
-        spaceBetween: 100,
+        spaceBetween: 50,
         coverflowEffect: {
           rotate: 0,
           stretch: 10,
@@ -23,7 +23,7 @@ const sliderConfig = {
         },
       },
       1024: {
-        spaceBetween: 30,
+        spaceBetween: 40,
         coverflowEffect: {
           depth: 200,
           rotate: 0,

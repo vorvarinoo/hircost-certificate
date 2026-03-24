@@ -51,13 +51,11 @@
     display: flex;
     justify-content: space-between;
     padding: 0 16px;
-
-    @include media-min($lg) {
-      display: none;
-    }
   }
 
   &__subtitle {
+    font-size: 20px;
+    line-height: 1.2;
     @include media-min($lg) {
       font-size: 40px;
       line-height: 1.2;

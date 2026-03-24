@@ -2,16 +2,25 @@
   <div class="quiz__top">
     @include('colors.html')
     <div style="position: relative;">
-      <div class="quiz__row">
-        <div class="quiz__subtitle">Изображение</div>
+      <div class="quiz__row d-lg-none">
+        <div class="quiz__subtitle mb-3">Изображение</div>
 
         <div class="slider-buttons">
-          <button></button>
-          <button></button>
+          <div class="d-lg-none" data-to-slide="prev">
+            <svg width="12" height="21" aria-hidden="true">
+              <use xlink:href="assets/img/sprite.svg#slider-prev"></use>
+            </svg>
+          </div>
+
+          <div class="d-lg-none" data-to-slide="next">
+            <svg width="12" height="21" aria-hidden="true">
+              <use xlink:href="assets/img/sprite.svg#slider-next"></use>
+            </svg>
+          </div>
         </div>
       </div>
       @include('slider.html')
-      <div class="create-design__background" data-checked-background></div>
+
     </div>
   </div>
 

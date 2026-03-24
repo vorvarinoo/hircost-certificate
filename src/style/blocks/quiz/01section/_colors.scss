@@ -1,13 +1,17 @@
 .create-design__colors {
-  @include list-reset;
-  display: flex;
-  margin: 0 auto;
-  margin-bottom: vw(24, 1440);
   order: 1;
+  padding: 0 rem(8) 0 rem(24);
 
   @include media-min($lg) {
     order: 0;
+    margin: 0 auto;
+    margin-bottom: vw(24, 1440);
   }
+}
+
+.colors {
+  display: flex;
+  @include list-reset;
 
   & li:not(:last-child) {
     margin-right: vw(16, 1440);
