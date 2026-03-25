@@ -6,10 +6,14 @@ const steps = document.querySelectorAll('.timeline__step');
 let currentStep = 1;
 const totalSteps = screens.length;
 
-const screenItems = Array.from(screens, (screen) => ({
-  el: screen,
-  num: Number(screen.dataset.screen),
-})).filter((item) => !isNaN(item.num)); // Фильтруем get-certificate экраны
+const screenItems = Array.from(screens, (screen) => {
+  const screenNum = screen.dataset.screen;
+  if (!screenNum) return null; // Пропускаем экраны без data-screen (get-certificate)
+  return {
+    el: screen,
+    num: Number(screenNum),
+  };
+}).filter((item) => item !== null);
 
 const stepItems = Array.from(steps, (stepEl) => ({
   el: stepEl,
@@ -57,12 +61,15 @@ const goToStep = (step) => {
 };
 
 const initQuiz = () => {
+  // Проверяем что это страница quiz (есть timeline)
+  const hasTimeline = document.querySelector('.timeline__step');
+  if (!hasTimeline) return; // Выходим если это get-certificate страница
+
   const timelineNav = document.querySelector('.timeline__nav');
   if (timelineNav) {
     timelineNav.addEventListener('click', (e) => {
       const btn = e.target.closest('button');
       if (!btn) return;
-      if (currentStep === 1) return;
       const step = parseInt(btn.closest('.timeline__step').dataset.step);
       goToStep(step);
     });
@@ -71,7 +78,6 @@ const initQuiz = () => {
   const quizContainer = document.querySelector('.quiz');
   if (quizContainer) {
     quizContainer.addEventListener('click', (e) => {
-      if (currentStep === 1) return;
       if (e.target.matches('[data-next]')) {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
@@ -79,14 +85,6 @@ const initQuiz = () => {
       }
     });
   }
-
-  document.querySelector('.quiz').addEventListener('click', (e) => {
-    if (e.target.matches('[data-next]')) {
-      goToStep(currentStep + 1);
-    } else if (e.target.matches('[data-prev]')) {
-      goToStep(currentStep - 1);
-    }
-  });
 
   // Отслеживание выбора цвета - сохраняем в state
   document.addEventListener('change', (e) => {
