@@ -2,14 +2,21 @@
 }
 
 .envelope {
+  --cover-rotate: -140deg;
+  --certificate-translateY: 0;
+
   position: relative;
   padding: rem(20);
   transform: rotate(10deg);
 
+  &--open {
+    --cover-rotate: 0;
+    --certificate-translateY: -25%;
+  }
   &__back,
   &__up {
     position: absolute;
-    bottom: rem(-60);
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -17,11 +24,15 @@
 
   &__cover {
     position: absolute;
-    top: -40%;
+    top: -99%;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 4;
+    transform: rotateX(var(--cover-rotate));
+    transform-origin: left bottom;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
   }
 
   &__back {
@@ -35,5 +46,7 @@
   &__certificate {
     position: relative;
     z-index: 1;
+    transform: translateY(var(--certificate-translateY));
+    transition: transform 1s ease;
   }
 }

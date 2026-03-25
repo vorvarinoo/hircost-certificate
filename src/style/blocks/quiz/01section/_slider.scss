@@ -131,3 +131,7 @@
     color: var(--white);
   }
 }
+
+.swiper-slide-visible:not(.swiper-slide-active) {
+  cursor: pointer;
+}

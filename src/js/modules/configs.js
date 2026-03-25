@@ -6,6 +6,7 @@ const sliderConfig = {
     slidesPerView: 'auto',
     centeredSlides: true,
     grabCursor: true,
+    slideToClickedSlide: true,
     speed: 500,
     breakpoints: {
       320: {
