@@ -1,5 +1,5 @@
 import { initSlider } from './utils.js';
-import { EffectCoverflow } from 'swiper/modules';
+import { EffectCoverflow } from 'swiper';
 import { sliderConfig } from './configs.js';
 
 window.swiperInstances = window.swiperInstances || {};

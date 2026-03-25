@@ -2,7 +2,7 @@ import HystModal from 'hystmodal';
 import Swiper from 'swiper';
 import {
   Navigation
-} from 'swiper/modules';
+} from 'swiper';
 import {
   sliderConfig,
   modalConfig
