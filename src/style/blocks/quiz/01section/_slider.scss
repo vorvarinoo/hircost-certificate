@@ -43,6 +43,7 @@
     &--preview {
       top: 50%;
       transform: translateY(-50%);
+      pointer-events: none;
 
       @include media-min($lg) {
         & img {
