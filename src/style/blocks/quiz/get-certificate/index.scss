@@ -2,4 +2,12 @@
   &__envelope {
     transform: rotate(-10deg);
   }
+
+  .envelope__cover {
+    transition: transform 1s ease, z-index 0s 1s;
+  }
+
+  .envelope--open .envelope__cover {
+    z-index: 0;
+  }
 }

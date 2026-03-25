@@ -16,6 +16,7 @@ import { initEditSection } from './modules/edit-section.js';
 import { initPriceLineDrag } from './modules/price-line-drag.js';
 import { initCertificatePrice } from './modules/certificate-price.js';
 import { initChoices } from './modules/choices.js';
+import { initEnvelope } from './modules/envelope.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteSettings();
@@ -31,5 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initPriceLineDrag();
     initCertificatePrice();
     initChoices();
+    initEnvelope();
   });
 });

@@ -57,12 +57,28 @@ const goToStep = (step) => {
 };
 
 const initQuiz = () => {
-  document.querySelector('.timeline__nav').addEventListener('click', (e) => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    const step = parseInt(btn.closest('.timeline__step').dataset.step);
-    goToStep(step);
-  });
+  const timelineNav = document.querySelector('.timeline__nav');
+  if (timelineNav) {
+    timelineNav.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      if (currentStep === 1) return;
+      const step = parseInt(btn.closest('.timeline__step').dataset.step);
+      goToStep(step);
+    });
+  }
+
+  const quizContainer = document.querySelector('.quiz');
+  if (quizContainer) {
+    quizContainer.addEventListener('click', (e) => {
+      if (currentStep === 1) return;
+      if (e.target.matches('[data-next]')) {
+        goToStep(currentStep + 1);
+      } else if (e.target.matches('[data-prev]')) {
+        goToStep(currentStep - 1);
+      }
+    });
+  }
 
   document.querySelector('.quiz').addEventListener('click', (e) => {
     if (e.target.matches('[data-next]')) {
