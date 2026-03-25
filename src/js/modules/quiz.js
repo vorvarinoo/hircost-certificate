@@ -9,7 +9,7 @@ const totalSteps = screens.length;
 const screenItems = Array.from(screens, (screen) => ({
   el: screen,
   num: Number(screen.dataset.screen),
-}));
+})).filter((item) => !isNaN(item.num)); // Фильтруем get-certificate экраны
 
 const stepItems = Array.from(steps, (stepEl) => ({
   el: stepEl,

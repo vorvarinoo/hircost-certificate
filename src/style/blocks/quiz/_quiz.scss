@@ -1,14 +1,25 @@
 .quiz {
   &__screen {
-    &.isActive {
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-  }
+    &.screen {
+      display: none;
 
-  &.screen {
-    display: none;
+      &.isActive {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+    }
+
+    // Специально для get-certificate экранов
+    &[data-screen-get-certificate] {
+      display: none;
+
+      &.isActive {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+    }
   }
 
   &__top {
