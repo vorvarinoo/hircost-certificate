@@ -18,7 +18,7 @@ const initEnvelope = () => {
       if (window.certificateScreens && window.certificateScreens.show) {
         window.certificateScreens.show(2);
       }
-    }, 1000);
+    }, 2500);
   };
 
   openBtn.addEventListener('click', openEnvelope);

@@ -1,11 +1,10 @@
 .envelope {
-  --cover-rotate: -140deg;
+  --cover-rotate: 0;
   --certificate-translateY: 0;
 
   position: relative;
-  padding: rem(20);
-  transform: rotate(10deg);
-  transform: rotate(-10deg);
+
+  max-width: max-content;
 
   &__back,
   &__up {
@@ -13,7 +12,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
   }
 
   &__back {
@@ -24,24 +23,46 @@
     z-index: 2;
   }
 
+  &__header,
+  &__main {
+    position: relative;
+  }
+
+  &__main {
+    padding: rem(10) rem(30) 0 rem(10);
+  }
+
   &__cover {
     position: absolute;
-    top: -99%;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
     z-index: 3;
-    transform: rotateX(var(--cover-rotate));
-    transform-origin: left bottom;
-    transform-style: preserve-3d;
-    transition: transform 1s ease;
-    transition:
-      transform 1s ease,
-      z-index 0s 1s;
+
+    &--shadow {
+      filter: drop-shadow(1px 0 14px rgba(0, 0, 0, 0.25));
+    }
+
+    &--close {
+      bottom: 30px;
+      left: 0;
+    }
+
+    &--open {
+      top: 0;
+      left: 0;
+      transform: rotateX(var(--cover-rotate));
+      transform-origin: left top;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      transition:
+        transform 1s ease,
+        z-index 0s 1s;
+    }
   }
 
   &--open {
-    --cover-rotate: 0;
+    --cover-rotate: -140deg;
+
     --certificate-translateY: -25%;
   }
 
@@ -51,7 +72,7 @@
 
   &__certificate {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     transform: translateY(var(--certificate-translateY));
     transition: transform 1s ease;
     transition-delay: 1s;
@@ -65,6 +86,10 @@
     align-items: center;
     justify-content: center;
     padding: rem(40) 0;
+  }
+
+  &__envelope {
+    transform: rotate(-10deg);
   }
 
   &__button {

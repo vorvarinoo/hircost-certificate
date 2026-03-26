@@ -1,11 +1,11 @@
-<section class="quiz__screen screen get-certificate" data-screen-get-certificate="2">
+<section class="certificate-view quiz__screen screen" data-screen-get-certificate="2">
 
-  <div class="get-certificate__content">
+  <div class="container certificate-view__inner">
 
     <div>Евгения, вам подарок!</div>
     <div>Электронный сертификат на 3 000 ₽</div>
 
-    @include('./../../common/certificate.html')
+    @include('./../../common/certificate.html', {class: 'envelope__certificate'})
 
     <div>код: 13SAJFL123</div>
 

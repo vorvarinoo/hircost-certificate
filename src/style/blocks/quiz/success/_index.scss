@@ -1,5 +1,5 @@
 .success {
-}
-
-.envelope {
+  &__envelope {
+    transform: rotate(10deg);
+  }
 }
