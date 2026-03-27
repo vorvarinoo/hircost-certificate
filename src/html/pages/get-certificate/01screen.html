@@ -5,7 +5,7 @@
     <div class="envelope certificate-unbox__envelope">
       <div class="envelope__header">
 
-        <svg class="envelope__cover envelope__cover--open envelope__cover--shadow" width="494" height="225"
+        <svg class="envelope__cover envelope__cover--close envelope__cover--shadow" width="494" height="225"
           viewBox="0 0 494 225" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M493.881 29.8494V0.000587364L0.00012639 0.000587364V29.8122C0.00012639 34.123 1.9552 38.2011 5.31602 40.9007L222.775 215.575C229.9 221.298 238.765 224.418 247.905 224.418C257.102 224.418 266.021 221.258 273.167 215.468L488.612 40.8999C491.945 38.1994 493.881 34.1389 493.881 29.8494Z"
@@ -18,12 +18,19 @@
             </linearGradient>
           </defs>
         </svg>
+
       </div>
       <div class="envelope__main">
         @include('./../../common/certificate.html', {class: 'envelope__certificate'})
         <img class="envelope__back" src="./assets/img/envelope-back.png" aria-hidden="true">
 
         <img class="envelope__up" src="./assets/img/envelope-up.png" aria-hidden="true">
+
+        <div class="envelope__label" data-envelope-label>
+          <svg width="181" height="26" aria-hidden="true">
+            <use xlink:href="assets/img/sprite.svg#logo"></use>
+          </svg>
+        </div>
       </div>
     </div>
 
