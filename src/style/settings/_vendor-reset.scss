@@ -3,7 +3,9 @@
 }
 
 .hidden {
-  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.5s ease;
 }
 
 .hystmodal {

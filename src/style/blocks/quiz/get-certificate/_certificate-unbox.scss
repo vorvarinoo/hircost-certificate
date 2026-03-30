@@ -26,6 +26,11 @@
     letter-spacing: -0.01em;
     color: #12612e;
 
+    [data-hidden] {
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+
     &--one {
       text-align: right;
       right: 54%;
