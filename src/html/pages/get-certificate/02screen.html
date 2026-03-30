@@ -2,35 +2,81 @@
 
   <div class="container certificate-view__inner">
 
-    <div>Евгения, вам подарок!</div>
-    <div>Электронный сертификат на 3 000 ₽</div>
+    <div class="certificate-view__background certificate-view__background--left notch-tr" aria-hidden="true"></div>
+    <div class="certificate-view__background certificate-view__background--right notch-tl" aria-hidden="true"></div>
 
-    @include('./../../common/certificate.html', {class: 'envelope__certificate'})
-
-    <div>код: 13SAJFL123</div>
-
-    <div>
-
-      <div>
-        Дорогая подруга! С днём рождения! Побалуй себя в этот день. Желаю тебе всего самого светлого, доброго и
-        прекрасного! Пусть на твоем жизненном пути будут встречаться только настоящие верные друзья и любящие тебя люди.
-        Пусть все самые сокровенные мечты будут исполнены, а все цели — достигнуты. Желаю быть всегда в гармонии с
-        собой, чувствовать и слышать свои желания и просто наслаждаться жизнью!
-      </div>
-
-      <div>
-        Марина Колесова
-      </div>
+    <div class="certificate-view__link">
+      В каталог Хиркост
     </div>
 
+    <div class="certificate-view__content">
+      <div class="certificate-view__title">Евгения, вам подарок!</div>
+      <div class="certificate-view__subtitle">Электронный сертификат на 3 000 ₽</div>
 
-    <div></div>
 
-    <div>
+      <div class="certificate-view__certificate">
+        @include('./../../common/certificate.html')
+      </div>
 
+
+      <div class="certificate-view__code">код: 13SAJFL123</div>
+
+      <div class="certificate-view__message">
+
+        <div class="certificate-view__text">
+          Дорогая подруга! С днём рождения! Побалуй себя в этот день. Желаю тебе всего самого светлого, доброго и
+          прекрасного! Пусть на твоем жизненном пути будут встречаться только настоящие верные друзья и любящие тебя
+          люди.
+          Пусть все самые сокровенные мечты будут исполнены, а все цели — достигнуты. Желаю быть всегда в гармонии с
+          собой, чувствовать и слышать свои желания и просто наслаждаться жизнью!
+        </div>
+
+        <div class="certificate-view__sender">
+          Марина Колесова
+        </div>
+      </div>
+
+
+      <div class="certificate-view__brand">
+        <div class="certificate-view__logo"></div>
+        <ul class="certificate-view__contacts">
+          <li class="certificate-view__contacts-item">
+            <span>
+              Поделиться
+            </span>
+            <a href="">
+              www.hircost.ru
+            </a>
+          </li>
+          <li class="certificate-view__contacts-item">
+            <span>
+              Телефон и WhatsApp:
+            </span>
+            <a href="">
+              +7 (904) 649-92-02
+            </a>
+          </li>
+          <li class="certificate-view__contacts-item">
+            <span>
+              ВКонтакте:
+            </span>
+            <a href="">
+              vk.com/hircost
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="certificate-view__actions">
+        <div class="certificate-view__share">
+          <span>
+            Поделиться
+          </span>
+        </div>
+        <div class="certificate-view__download">
+
+        </div>
+      </div>
     </div>
   </div>
-
-
-
 </section>

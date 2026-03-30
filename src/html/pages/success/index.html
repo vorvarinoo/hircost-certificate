@@ -1,21 +1,23 @@
 <section class="quiz__screen success">
 
-  <div class="container">
+  <div class="container success__container">
 
 
-    <div class="success__envelope envelope envelope--open">
-      <div class="envelope__header">
-        <img class="envelope__cover envelope__cover--open" src="./assets/img/envelope-cover.png" aria-hidden="true">
+    <div class="success__inner">
+      <div class="success__envelope envelope envelope--open">
+        <div class="envelope__header">
+          <img class="envelope__cover envelope__cover--open" src="./assets/img/envelope-cover.png" aria-hidden="true">
+        </div>
+        <div class="envelope__main">
+          @include('./../../common/certificate.html', {class: 'envelope__certificate'})
+          <img class="envelope__back" src="./assets/img/envelope-back.png" aria-hidden="true">
+          <img class="envelope__up" src="./assets/img/envelope-up.png" aria-hidden="true">
+        </div>
       </div>
-      <div class="envelope__main">
-        @include('./../../common/certificate.html', {class: 'envelope__certificate'})
-        <img class="envelope__back" src="./assets/img/envelope-back.png" aria-hidden="true">
-        <img class="envelope__up" src="./assets/img/envelope-up.png" aria-hidden="true">
-      </div>
+
+
+      @include('info.html')
     </div>
-
-
-    @include('info.html')
   </div>
 
 </section>

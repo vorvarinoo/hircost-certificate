@@ -6,6 +6,13 @@
   align-items: center;
 }
 
+.btn-primary {
+  border-radius: 100px;
+  padding: 14px 24px;
+  background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
+  color: var(--white);
+}
+
 .button-navigation {
   position: absolute;
   font-size: 16px;

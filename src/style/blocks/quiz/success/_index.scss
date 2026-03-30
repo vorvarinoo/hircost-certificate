@@ -1,5 +1,37 @@
 .success {
+  &__container {
+    --max-width: #{vw(981, 1440)};
+  }
+
+  &__inner {
+    display: flex;
+  }
+
   &__envelope {
+    padding-top: rem(140);
     transform: rotate(10deg);
+    flex: 1 1 100%;
+    margin-right: 20px;
+  }
+
+  &__info {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}
+
+.success-info {
+  &__button {
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 40px;
+    margin-bottom: rem(145);
+  }
+
+  &__text {
+    font-size: 30px;
+    margin-bottom: rem(83);
   }
 }

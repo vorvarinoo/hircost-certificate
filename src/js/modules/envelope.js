@@ -13,6 +13,16 @@ const initEnvelope = () => {
 
     envelope.classList.add('envelope--open');
 
+    const hiddenElements = document.querySelectorAll('[data-hidden]');
+    hiddenElements.forEach(el => el.classList.add('hidden'));
+
+    const video = document.querySelector('.video-bg');
+    if (video) {
+      video.play().catch(err => {
+        console.warn('Video autoplay prevented:', err);
+      });
+    }
+
     setTimeout(() => {
       // Используем глобальную функцию из quiz-get-certificate.js
       if (window.certificateScreens && window.certificateScreens.show) {
