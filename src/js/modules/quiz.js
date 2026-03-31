@@ -54,9 +54,20 @@ const updateUI = (step) => {
   document.dispatchEvent(new CustomEvent('quiz-step-changed', { detail: { step } }));
 };
 
-const goToStep = (step) => {
+const goToStep = (step, options = {}) => {
   if (step < 1 || step > totalSteps) return;
   currentStep = step;
+
+  if (step === 3) {
+    const viewBlock = document.querySelector('[data-recipient-view]');
+    const editBlock = document.querySelector('[data-recipient-edit]');
+    if (viewBlock && editBlock) {
+      const isEdit = options.editMode;
+      viewBlock.classList.toggle('hidden', isEdit);
+      editBlock.classList.toggle('hidden', !isEdit);
+    }
+  }
+
   updateUI(currentStep);
 };
 
@@ -78,7 +89,9 @@ const initQuiz = () => {
   const quizContainer = document.querySelector('.quiz');
   if (quizContainer) {
     quizContainer.addEventListener('click', (e) => {
-      if (e.target.matches('[data-next]')) {
+      if (e.target.matches('[data-edit-client]')) {
+        goToStep(3, { editMode: true });
+      } else if (e.target.matches('[data-next]')) {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
         goToStep(currentStep - 1);

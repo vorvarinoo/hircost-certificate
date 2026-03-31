@@ -1,7 +1,7 @@
 <section class="quiz__screen screen" data-screen="3">
 
   <div class="quiz__subtitle quiz__subtitle--03">Кому дарим</div>
-  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3">
+  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3" data-recipient-view>
 
     <div class="create-design__certificate" data-checked-background>
       <div data-certificate-image>
@@ -10,6 +10,9 @@
     </div>
 
 
+    @include('form.html')
+  </div>
+  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3 hidden" data-recipient-edit>
     @include('form.html')
   </div>
   <div>
