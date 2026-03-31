@@ -62,7 +62,7 @@ const goToStep = (step, options = {}) => {
     const viewBlock = document.querySelector('[data-recipient-view]');
     const editBlock = document.querySelector('[data-recipient-edit]');
     if (viewBlock && editBlock) {
-      const isEdit = options.editMode;
+      const isEdit = options.editMode ?? false;
       viewBlock.classList.toggle('hidden', isEdit);
       editBlock.classList.toggle('hidden', !isEdit);
     }
@@ -72,7 +72,7 @@ const goToStep = (step, options = {}) => {
     const viewBlock = document.querySelector('[data-delivery-view]');
     const editBlock = document.querySelector('[data-delivery-edit]');
     if (viewBlock && editBlock) {
-      const isEdit = options.editMode;
+      const isEdit = options.editMode ?? false;
       viewBlock.classList.toggle('hidden', isEdit);
       editBlock.classList.toggle('hidden', !isEdit);
     }
