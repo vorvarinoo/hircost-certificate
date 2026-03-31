@@ -1,16 +1,16 @@
 import Choices from 'choices.js';
 
 const initChoices = () => {
-  const timeZone = document.querySelector('[data-choice-time-zone]');
-  if (timeZone) {
+  const timeZones = document.querySelectorAll('[data-choice-time-zone]');
+  timeZones.forEach((timeZone) => {
     new Choices(timeZone, {
       searchEnabled: false,
       itemSelectText: '',
     });
-  }
+  });
 
-  const timeDelivery = document.querySelector('[data-choice-time-delivery]');
-  if (timeDelivery) {
+  const timeDeliveries = document.querySelectorAll('[data-choice-time-delivery]');
+  timeDeliveries.forEach((timeDelivery) => {
     new Choices(timeDelivery, {
       searchEnabled: false,
       itemSelectText: '',
@@ -18,7 +18,7 @@ const initChoices = () => {
         containerOuter: ['choices', 'choice-time-delivery'],
       },
     });
-  }
+  });
 };
 
 export { initChoices };
