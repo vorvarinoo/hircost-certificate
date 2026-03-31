@@ -1,7 +1,7 @@
 /* вырез в правом верхнем углу */
 .notch-tr {
   --r: 50px; /* радиус скруглений */
-  --w: 160px; /* ширина выреза */
+  --w: #{vw(100, 1440)}; /* ширина выреза */
   --h: -60px; /* высота выреза */
 
   mask-image:
@@ -35,7 +35,7 @@
 /* вырез в левом верхнем углу */
 .notch-tl {
   --r: 50px;
-  --w: 160px;
+  --w: #{vw(100, 1440)};
   --h: -60px;
 
   mask-image:
@@ -72,6 +72,7 @@
 
   &__inner {
     position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,8 +84,6 @@
   &__background {
     position: absolute;
     top: 0;
-
-    width: calc(#{'50% + 1px'});
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(0px);
@@ -92,11 +91,13 @@
     &--left {
       left: 0;
       border-radius: 100px 0 0 100px;
+      width: calc(#{'50% + 1px'});
     }
 
     &--right {
       right: 0;
       border-radius: 0 100px 100px 0;
+      width: 50%;
     }
   }
 
@@ -154,5 +155,60 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 1.32;
+  }
+
+  &__brand {
+    display: flex;
+    padding: 0 rem(95);
+    justify-content: space-between;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  &__logo {
+    margin-right: rem(60);
+    display: flex;
+    align-items: center;
+  }
+
+  &__contacts {
+    @include list-reset;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+
+    & li {
+      display: grid;
+      line-height: 1.2;
+    }
+
+    & span {
+      color: rgba(0, 0, 0, 0.5);
+      display: inline-block;
+    }
+
+    & a {
+      color: var(--black);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__share {
+    display: flex;
+    align-items: center;
+
+    & > span {
+      margin-right: 20px;
+    }
+  }
+
+  &__social {
+    @include list-reset;
+    display: flex;
   }
 }

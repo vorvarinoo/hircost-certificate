@@ -38,7 +38,11 @@
 
 
       <div class="certificate-view__brand">
-        <div class="certificate-view__logo"></div>
+        <div class="logo certificate-view__logo">
+          <svg width="240" height="35" aria-hidden="true">
+            <use xlink:href="assets/img/sprite.svg#logo"></use>
+          </svg>
+        </div>
         <ul class="certificate-view__contacts">
           <li class="certificate-view__contacts-item">
             <span>
@@ -72,10 +76,27 @@
           <span>
             Поделиться
           </span>
-        </div>
-        <div class="certificate-view__download">
+          <ul class="certificate-view__social">
+            <li>
+              <a href="" class="link-social">
+                <svg width="14" height="12" aria-hidden="true">
+                  <use xlink:href="assets/img/sprite.svg#tg"></use>
+                </svg>
+              </a>
+            </li>
 
+            <li>
+              <a href="" class="link-social">
+                <svg width="15" height="9" aria-hidden="true">
+                  <use xlink:href="assets/img/sprite.svg#vk"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
         </div>
+        <button class="btn btn-primary certificate-view__download">
+          Скачать PDF
+        </button>
       </div>
     </div>
   </div>
