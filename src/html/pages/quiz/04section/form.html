@@ -13,7 +13,10 @@
     </div>
     <div data-jtabs="panel">
       <div class="form-inputs form-inputs--col">
-        <input data-flatpickr-time-delivery class="form-input form-input--col-span" type="text" placeholder="">
+        <div class="input-data-delivery">
+          <input class="input-data-delivery__input" id="date" data-flatpickr-time-delivery type="text" placeholder="">
+          <label class="input-data-delivery__label" for="date">День отправления</label>
+        </div>
         <select data-choice-time-delivery name="Время" aria-label="Выбрать время доставки">
           <option value="00:00">00:00</option>
           <option value="12:00">12:00</option>

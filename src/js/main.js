@@ -17,6 +17,7 @@ import { initPriceLineDrag } from './modules/price-line-drag.js';
 import { initCertificatePrice } from './modules/certificate-price.js';
 import { initChoices } from './modules/choices.js';
 import { initEnvelope } from './modules/envelope.js';
+import './modules/input.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initSiteSettings();

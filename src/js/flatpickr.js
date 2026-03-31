@@ -6,6 +6,6 @@ flatpickr('[data-flatpickr-time-delivery]', {
   altInput: true,
   altFormat: 'j F Y',
   dateFormat: 'Y-m-d',
-  minDate: 'today',
-  defaultDate: 'today',
+  minDate: new Date().fp_incr(1),
+  defaultDate: new Date().fp_incr(1),
 });

@@ -1,6 +1,6 @@
 .form-inputs {
   display: grid;
-  gap: 16px;
+  gap: rem(12);
 
   &--col {
     grid-template-columns: rem(84) 1fr;
@@ -81,13 +81,13 @@
 
   &__input {
     grid-area: 1 / 1 / -1 / -1;
-    padding: rem(22) 40px 6px 16px;
+    padding: rem(20) 40px 6px 16px;
     box-sizing: border-box;
     width: 100%;
     min-width: 0;
     height: 100%;
     outline: 0;
-    border: 0;
+    border: 1px solid transparent;
     border-radius: 0.75rem;
     background: var(--white);
     color: var(--black);
@@ -104,9 +104,9 @@
 
   &__input:focus ~ .input__label {
     padding-top: rem(6);
-    font-size: 0.875em;
+    font-size: rem(12);
   }
-  &__input.has-value ~ .input__label {
+  &._has-value .input__label {
     padding-top: rem(6);
     font-size: rem(12);
   }
@@ -115,7 +115,7 @@
     position: relative;
     display: flex;
     grid-area: 1 / 1 / -1 / -1;
-    padding: rem(22) 40px 6px 16px;
+    padding: rem(18) 40px 6px 16px;
     box-sizing: border-box;
     height: -moz-min-content;
     height: min-content;
@@ -130,5 +130,90 @@
   }
 
   &__clear-button {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    line-height: 1;
+
+    &::before {
+      content: '×';
+    }
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &:not(._has-value) &__clear-button {
+    display: none;
+  }
+
+  &__error-text {
+    display: none;
+    margin-top: 4px;
+    font-size: rem(12);
+    color: var(--error, #bd0300);
+
+    &._active {
+      display: block;
+    }
+  }
+
+  &._error &__input {
+    border-color: var(--error, #bd0300);
+  }
+
+  &._error &__label {
+    color: var(--error, #bd0300);
+  }
+}
+
+.input-data-delivery {
+  display: grid;
+  grid-column: 1/2 span;
+
+  &__label {
+    position: relative;
+    display: flex;
+    grid-area: 1 / 1 / -1 / -1;
+    padding: rem(12) 40px 8px 16px;
+    box-sizing: border-box;
+    height: -moz-min-content;
+    height: min-content;
+    color: rgba(0, 0, 0, 0.5);
+    font: inherit;
+    pointer-events: none;
+    will-change: padding, font-size;
+    font-size: rem(14);
+  }
+
+  &__input {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+    grid-area: 1 / 1 / -1 / -1;
+    padding: rem(27) 40px 8px 16px;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    border: 1px solid transparent;
+    border-radius: 0.75rem;
+    background: var(--white);
+    color: var(--black);
+    font: inherit;
+    font-size: rem(20);
+    resize: none;
+    appearance: none;
   }
 }
