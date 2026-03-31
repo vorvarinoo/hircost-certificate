@@ -1,19 +1,19 @@
 <section class="quiz__screen screen" data-screen="3">
 
   <div class="quiz__subtitle quiz__subtitle--03">Кому дарим</div>
-  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3" data-recipient-view>
+  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3">
 
-    <div class="create-design__certificate" data-checked-background>
-      <div data-certificate-image>
-        <img src="" alt="Сертификат">
+    <div data-recipient-view>
+      <div class="create-design__certificate" data-checked-background>
+        <div data-certificate-image>
+          <img src="" alt="Сертификат">
+        </div>
       </div>
+      @include('form.html', {'dataJtabs': 'recipient-contacts'})
     </div>
-
-
-    @include('form.html', {'dataJtabs': 'recipient-contacts'})
-  </div>
-  <div class="quiz__top quiz__top--row quiz__top--ji-center quiz__top3 hidden" data-recipient-edit>
-    @include('form.html', {'dataJtabs': 'recipient-edit-contacts'})
+    <div data-recipient-edit>
+      @include('form.html', {'dataJtabs': 'recipient-edit-contacts'})
+    </div>
   </div>
   <div>
     <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
