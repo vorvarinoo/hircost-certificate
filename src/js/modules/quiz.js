@@ -68,6 +68,16 @@ const goToStep = (step, options = {}) => {
     }
   }
 
+  if (step === 2) {
+    const viewBlock = document.querySelector('[data-delivery-view]');
+    const editBlock = document.querySelector('[data-delivery-edit]');
+    if (viewBlock && editBlock) {
+      const isEdit = options.editMode ?? false;
+      viewBlock.classList.toggle('hidden', isEdit);
+      editBlock.classList.toggle('hidden', !isEdit);
+    }
+  }
+
   if (step === 4) {
     const viewBlock = document.querySelector('[data-delivery-view]');
     const editBlock = document.querySelector('[data-delivery-edit]');
@@ -102,7 +112,7 @@ const initQuiz = () => {
       if (e.target.matches('[data-edit-client]')) {
         goToStep(3, { editMode: true });
       } else if (e.target.matches('[data-edit-order]')) {
-        goToStep(4, { editMode: true });
+        goToStep(2, { editMode: true });
       } else if (e.target.matches('[data-next]')) {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {

@@ -1,13 +1,19 @@
 <section class="quiz__screen screen" data-screen="2">
-  <div class="quiz__top quiz__top--ai-center quiz__top--grow-0">
-    <div class="quiz__subtitle mb-2">Выберите номинал</div>
-    <div class="create-design__certificate create-design__certificate--max-width s" data-checked-background>
-      <div data-certificate-image>
-        <img src="" alt="Сертификат">
+  <div data-delivery-view>
+    <div class="quiz__top quiz__top--ai-center quiz__top--grow-0">
+      <div class="quiz__subtitle mb-2">Выберите номинал</div>
+      <div class="create-design__certificate create-design__certificate--max-width s" data-checked-background>
+        <div data-certificate-image>
+          <img src="" alt="Сертификат">
+        </div>
       </div>
     </div>
+    @include('price-line.html')
   </div>
-  @include('price-line.html')
+
+  <div data-delivery-edit>
+    @include('price-line.html')
+  </div>
 
   <div>
     <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
