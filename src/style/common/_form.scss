@@ -19,6 +19,19 @@
     &--col {
       grid-template-columns: rem(84) 1fr;
     }
+    margin-bottom: 12px;
+  }
+
+  &__error {
+    font-size: 12px;
+    line-height: 1.32;
+    text-align: center;
+    background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
+    background-clip: text;
+
+    @include media-min($lg) {
+      font-size: 15px;
+    }
   }
 }
 

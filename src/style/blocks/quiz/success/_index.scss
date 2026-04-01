@@ -7,6 +7,10 @@
 
   &__container {
     --max-width: #{vw(981, 1440)};
+
+    @include media-min($lg) {
+      --max-width: #{vw(900, 1600)};
+    }
   }
 
   &__inner {
