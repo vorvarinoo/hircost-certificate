@@ -48,7 +48,7 @@ const updateUI = (step, isEditMode = false) => {
 
   if (isEditMode) {
     if (nextButton) nextButton.classList.add('hidden');
-    if (saveButton) saveButton.classList.remove('hidden');
+    if (saveButton) saveButton.classList.add('is-visible');
   } else {
     if (nextButton) {
       if (step >= 5) {
@@ -57,7 +57,19 @@ const updateUI = (step, isEditMode = false) => {
         nextButton.classList.remove('hidden');
       }
     }
-    if (saveButton) saveButton.classList.add('hidden');
+    if (saveButton) saveButton.classList.remove('is-visible');
+  }
+
+  const headerTitle = document.querySelector('[data-header-title]');
+  if (headerTitle) {
+    const titles = {
+      1: 'Выберите дизайн',
+      2: 'Выберите номинал',
+      3: 'Кому дарим',
+      4: 'Когда отправить',
+      5: 'Проверьте, всё ли верно',
+    };
+    headerTitle.textContent = titles[step] || '';
   }
 
   document.dispatchEvent(new CustomEvent('quiz-step-changed', { detail: { step } }));
