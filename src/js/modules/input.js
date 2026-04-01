@@ -62,6 +62,11 @@ class Input {
       this.initDateMask();
     }
 
+    // Initialize phone mask
+    if (this.type === 'tel') {
+      this.initPhoneMask();
+    }
+
     // Initialize hints functionality
     if (this.hints) {
       this.initHints();
@@ -77,8 +82,8 @@ class Input {
   handleInput() {
     let cleanValue = this.input.value;
 
-    // Remove non-numeric characters for phone/number inputs
-    if (this.type === 'tel' || this.type === 'number') {
+    // Remove non-numeric characters for number inputs
+    if (this.type === 'number') {
       cleanValue = cleanValue.replace(/\D/g, '');
       this.input.value = cleanValue;
     }
@@ -104,6 +109,16 @@ class Input {
       mask: Date,
       min: new Date(1900, 1, 1),
       max: new Date(new Date().setFullYear(new Date().getFullYear() - 18)),
+    });
+  }
+
+  /**
+   * Initialize phone masking for phone fields
+   */
+  initPhoneMask() {
+    IMask(this.input, {
+      mask: '+{7} (000) 000-00-00',
+      lazy: true
     });
   }
 
