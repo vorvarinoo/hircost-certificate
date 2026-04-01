@@ -1,53 +1,64 @@
+<!-- <div>
+  <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_f_11514_132415)">
+      <path
+        d="M237.103 26.3884C106.155 76.5278 61.9047 278.849 138.268 478.286C214.631 677.722 382.69 798.751 513.639 748.612C644.587 698.472 688.837 496.151 612.474 296.715C536.111 97.278 368.052 -23.7511 237.103 26.3884Z"
+        fill="#DAD6FF" fill-opacity="0.7" />
+    </g>
+    <defs>
+      <filter id="filter0_f_11514_132415" x="-99.1475" y="-184.938" width="949.037" height="1144.88"
+        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_11514_132415" />
+      </filter>
+    </defs>
+  </svg>
+  <svg class="background2-2" width="502" height="775" viewBox="0 0 502 775" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_f_11514_132416)">
+      <path
+        d="M567.093 476.329C472.783 629.029 331.936 713.047 252.504 663.987C173.071 614.928 185.132 451.37 279.442 298.67C373.753 145.97 514.599 61.953 594.032 111.012C673.465 160.071 661.404 323.63 567.093 476.329Z"
+        fill="#D3CFF8" />
+    </g>
+    <defs>
+      <filter id="filter0_f_11514_132416" x="0" y="-102.985" width="846.535" height="980.97"
+        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+        <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_11514_132416" />
+      </filter>
+    </defs>
+  </svg>
+</div> -->
+
+
 <section class="quiz__screen screen" data-screen="2">
-  <div data-delivery-view>
+  <div data-delivery-view class="quiz__content">
+    <div class="quiz__subtitle mb-4 d-none d-lg-block">Выберите номинал</div>
     <div class="quiz__top quiz__top--ai-center quiz__top--grow-0">
-      <div class="quiz__subtitle mb-2">Выберите номинал</div>
-      <div class="create-design__certificate create-design__certificate--max-width s" data-checked-background>
+      <div class="create-design__certificate create-design__certificate--max-width" data-checked-background>
         <div data-certificate-image>
           <img src="" alt="Сертификат">
         </div>
       </div>
     </div>
-    @include('price-line.html')
+    @include('price.html')
   </div>
 
-  <div data-delivery-edit>
-    @include('../04section/form.html', {'dataJtabs': 'delivery-edit-date'})
-    @include('price-line.html')
+  <div data-delivery-edit class="quiz__content">
+    <div class="quiz__subtitle mb-4 d-none d-lg-block">Выберите время и номинал</div>
+    <div class="delivery-edit mb-3 mb-lg-5">
+      @include('../04section/form.html', {'dataJtabs': 'delivery-edit-date'})
+    </div>
+    <div class="quiz__subtitle mb-1 d-flex justify-content-center">
+      Сертификат на сумму
+    </div>
+    <div class="d-flex justify-content-center">
+
+      @include('price-line.html')
+    </div>
   </div>
 
-  <div>
-    <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <g filter="url(#filter0_f_11514_132415)">
-        <path
-          d="M237.103 26.3884C106.155 76.5278 61.9047 278.849 138.268 478.286C214.631 677.722 382.69 798.751 513.639 748.612C644.587 698.472 688.837 496.151 612.474 296.715C536.111 97.278 368.052 -23.7511 237.103 26.3884Z"
-          fill="#DAD6FF" fill-opacity="0.7" />
-      </g>
-      <defs>
-        <filter id="filter0_f_11514_132415" x="-99.1475" y="-184.938" width="949.037" height="1144.88"
-          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_11514_132415" />
-        </filter>
-      </defs>
-    </svg>
-    <svg class="background2-2" width="502" height="775" viewBox="0 0 502 775" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <g filter="url(#filter0_f_11514_132416)">
-        <path
-          d="M567.093 476.329C472.783 629.029 331.936 713.047 252.504 663.987C173.071 614.928 185.132 451.37 279.442 298.67C373.753 145.97 514.599 61.953 594.032 111.012C673.465 160.071 661.404 323.63 567.093 476.329Z"
-          fill="#D3CFF8" />
-      </g>
-      <defs>
-        <filter id="filter0_f_11514_132416" x="0" y="-102.985" width="846.535" height="980.97"
-          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-          <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_11514_132416" />
-        </filter>
-      </defs>
-    </svg>
-  </div>
 </section>

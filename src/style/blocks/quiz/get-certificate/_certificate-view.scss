@@ -2,7 +2,13 @@
 .notch-tr {
   --r: 50px; /* радиус скруглений */
   --w: #{vw(100, 1440)}; /* ширина выреза */
-  --h: -60px; /* высота выреза */
+  --h: -80px; /* высота выреза */
+  margin-top: 8px;
+
+  @include media-min($lg) {
+    --h: -60px;
+    margin-top: 0;
+  }
 
   mask-image:
     linear-gradient(#000 0 0), linear-gradient(#000 0 0),
@@ -36,8 +42,13 @@
 .notch-tl {
   --r: 50px;
   --w: #{vw(100, 1440)};
-  --h: -60px;
+  --h: -80px; /* высота выреза */
+  margin-top: 8px;
 
+  @include media-min($lg) {
+    margin-top: 0;
+    --h: -60px;
+  }
   mask-image:
     linear-gradient(#000 0 0), linear-gradient(#000 0 0),
     linear-gradient(#000 0 0), linear-gradient(#000 0 0),
@@ -67,8 +78,15 @@
 }
 
 .certificate-view {
+  padding: rem(110) rem(16);
   background-color: #f3f2ff;
   padding-bottom: rem(62);
+
+  @include media-min($lg) {
+    padding: rem(120) rem(40);
+  }
+  &__container {
+  }
 
   &__inner {
     position: relative;
@@ -90,92 +108,189 @@
 
     &--left {
       left: 0;
-      border-radius: 100px 0 0 100px;
+      border-radius: 20px 0 0 20px;
       width: calc(#{'50% + 1px'});
+
+      @include media-min($lg) {
+        border-radius: 100px 0 0 100px;
+      }
     }
 
     &--right {
       right: 0;
-      border-radius: 0 100px 100px 0;
+      border-radius: 0 20px 20px 0;
       width: 50%;
+
+      @include media-min($lg) {
+        border-radius: 0 100px 100px 0;
+      }
     }
   }
 
   &__link {
+    position: relative;
+    z-index: 2;
     margin: 0 auto;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: var(--black);
+    cursor: pointer;
+
+    @include media-min($lg) {
+      font-size: 24px;
+    }
+    & > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+      width: 16px;
+      height: 16px;
+      @include media-min($lg) {
+        width: 20px;
+        height: 20px;
+        margin-left: 12px;
+      }
+    }
+
+    & svg {
+      @include media-min($lg) {
+        width: 17px;
+        height: 10px;
+      }
+    }
   }
 
   &__content {
     position: relative;
     z-index: 1;
-    padding: rem(100) 0 rem(190);
+    padding: rem(40) rem(16) rem(45);
     display: flex;
     flex-direction: column;
     flex-direction: column;
+
+    @include media-min($lg) {
+      padding: rem(140) vw(200, 1440) rem(190);
+    }
   }
 
   &__certificate {
     display: inline-flex;
     margin: 0 auto;
+    margin-bottom: 32px;
+
+    @include media-min($lg) {
+      margin-bottom: 120px;
+    }
   }
 
   &__title {
     text-align: center;
-    font-weight: 400;
-    font-size: 60px;
+    font-size: 24px;
     line-height: 1.2;
     color: var(--black);
+    margin-bottom: 12px;
+
+    @include media-min($lg) {
+      margin-bottom: 32px;
+      font-size: 60px;
+    }
   }
 
   &__subtitle {
     text-align: center;
-    font-size: 60px;
+    font-size: 24px;
     line-height: 1.2;
     color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 12px;
+
+    @include media-min($lg) {
+      margin-bottom: 32px;
+      font-size: 60px;
+    }
   }
 
   &__code {
     text-align: center;
-    font-size: 60px;
+    font-size: 24px;
     line-height: 1.2;
     color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 34px;
+
+    @include media-min($lg) {
+      margin-bottom: 80px;
+      font-size: 60px;
+    }
   }
 
   &__message {
     padding: 0 rem(56);
+    margin-bottom: 40px;
+
+    @include media-min($lg) {
+      margin-bottom: 80px;
+    }
   }
 
   &__text {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.32;
+    font-size: 16px;
+    line-height: 1.52;
+    margin-bottom: 20px;
+
+    @include media-min($lg) {
+      font-size: 24px;
+      line-height: 1.32;
+      margin-bottom: 32px;
+    }
   }
 
   &__sender {
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 1.32;
+    font-size: 16px;
+    line-height: 1.52;
+
+    @include media-min($lg) {
+      font-size: 24px;
+      line-height: 1.32;
+    }
   }
 
   &__brand {
-    display: flex;
-    padding: 0 rem(95);
-    justify-content: space-between;
-    flex: 1 1 auto;
-    justify-content: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 40px;
+    @include media-min($lg) {
+      padding-right: rem(95);
+      padding-left: rem(95);
+      justify-content: space-between;
+      flex: 1 1 auto;
+      justify-content: center;
+      display: flex;
+    }
   }
 
   &__logo {
-    margin-right: rem(60);
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
+
+    @include media-min($lg) {
+      margin-bottom: 0;
+      margin-right: rem(60);
+    }
   }
 
   &__contacts {
     @include list-reset;
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: space-between;
+    display: grid;
+    gap: 20px;
+
+    @include media-min($lg) {
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: space-between;
+      gap: 38px;
+    }
 
     & li {
       display: grid;
@@ -193,22 +308,34 @@
   }
 
   &__actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include media-min($lg) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   &__share {
-    display: flex;
-    align-items: center;
+    margin-bottom: 16px;
+    @include media-min($lg) {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+    }
 
     & > span {
-      margin-right: 20px;
+      display: block;
+      margin-bottom: 16px;
+      @include media-min($lg) {
+        margin-bottom: 0;
+        margin-right: 20px;
+      }
     }
   }
 
   &__social {
     @include list-reset;
     display: flex;
+    gap: 12px;
   }
 }

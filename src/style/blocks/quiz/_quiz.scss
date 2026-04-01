@@ -1,5 +1,11 @@
+.screen {
+  padding-top: rem(100);
+}
+
 .quiz {
   &__screen {
+    position: relative;
+    z-index: 1;
     &.screen {
       display: none;
 
@@ -22,6 +28,16 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
   &__top {
     position: relative;
     z-index: 1;
@@ -30,14 +46,6 @@
     flex-direction: column;
 
     &--row {
-      flex-direction: row;
-      align-items: flex-start;
-      --max-width: #{vw(960, 1440)};
-      --padding-side: #{vw(240, 1440)};
-
-      width: min(var(--max-width), 100% - (var(--padding-side) * 2));
-      margin: 0 auto;
-
       gap: 18px;
     }
 

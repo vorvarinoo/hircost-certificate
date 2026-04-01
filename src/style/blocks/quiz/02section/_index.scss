@@ -1,1 +1,12 @@
 @import 'price';
+
+.delivery-edit {
+  padding: 0 rem(16);
+  @include media-min($lg) {
+    --max-width: #{vw(430, 1440)};
+    --padding-side: #{vw(500, 1440)};
+    width: min(var(--max-width), 100% - (var(--padding-side) * 2));
+    padding: 0;
+    margin: 0 auto;
+  }
+}

@@ -4,6 +4,10 @@
   height: stretch;
   grid-template-rows: auto auto 1fr;
 
+  @include media-max($lg) {
+    padding: 0 rem(16);
+  }
+
   &--inputs {
     display: flex;
     flex-direction: column;
@@ -122,6 +126,41 @@
       color: #808080;
       text-decoration: underline;
       text-decoration-skip-ink: none;
+    }
+  }
+}
+
+.five {
+  &__wrapper {
+    flex-grow: 1;
+
+    @include media-max($lg) {
+      display: grid;
+      grid-auto-rows: min-content 1fr;
+    }
+    @include media-min($lg) {
+      display: flex;
+      flex-direction: row;
+
+      display: flex;
+      --max-width: #{vw(960, 1440)};
+      --padding-side: #{vw(240, 1440)};
+
+      width: min(var(--max-width), 100% - (var(--padding-side) * 2));
+      margin: 0 auto;
+    }
+  }
+
+  &__certificate {
+    @include media-max($lg) {
+      margin: 0 auto;
+      max-width: vw(220, 375);
+      margin-bottom: rem(16);
+    }
+
+    @include media-min($lg) {
+      margin-right: rem(30);
+      height: max-content;
     }
   }
 }

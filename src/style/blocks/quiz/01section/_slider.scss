@@ -83,8 +83,12 @@
     flex: 1 1 100%;
 
     &--max-width {
-      max-width: vw(450, 1440);
       height: 90%;
+      max-width: vw(220, 375);
+
+      @include media-min($lg) {
+        max-width: vw(450, 1440);
+      }
     }
 
     & img {

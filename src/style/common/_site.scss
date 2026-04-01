@@ -9,10 +9,14 @@
   &__header {
     flex-shrink: 0;
     padding: rem(20) rem(20);
-    margin-bottom: rem(28);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
 
     @include media-min($lg) {
-      padding: vh(40, 825) vw(48, 1440);
+      padding: rem(40) vw(48, 1440);
       margin-bottom: 0;
     }
   }

@@ -8,34 +8,43 @@
     </li>
   </ul>
   <div>
-    <div data-jtabs="panel">
-      Отправить сегодня, 23 октября, сразу после оплаты
+    <div data-jtabs="panel" style="height: 100%;">
+      <div class="delivery-today">
+        <div class="delivery-today__note">
+          Отправить сегодня
+        </div>
+        <div class="delivery-today__date">
+          23 октября, сразу после оплаты
+        </div>
+      </div>
     </div>
     <div data-jtabs="panel">
       <div class="form-inputs form-inputs--col">
-        <div class="input-data-delivery">
-          <input class="input-data-delivery__input" id="date" data-flatpickr-time-delivery type="text" placeholder="">
-          <label class="input-data-delivery__label" for="date">День отправления</label>
+        <div class="form-inputs__list  form-inputs__list--col">
+          <div class="input-data-delivery">
+            <input class="input-data-delivery__input" id="date" data-flatpickr-time-delivery type="text" placeholder="">
+            <label class="input-data-delivery__label" for="date">День отправления</label>
+          </div>
+          <select data-choice-time-delivery name="Время" aria-label="Выбрать время доставки">
+            <option value="00:00">00:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+          </select>
+          <select data-choice-time-zone name="Часовой пояс" aria-label="Выбор часового пояса">
+            <option value="Московский">Московский</option>
+            <option value="Калининградсий">Калининградсий (МСК-1)</option>
+            <option value="Калининградсий">Самарский (МСК+1)</option>
+          </select>
         </div>
-        <select data-choice-time-delivery name="Время" aria-label="Выбрать время доставки">
-          <option value="00:00">00:00</option>
-          <option value="12:00">12:00</option>
-          <option value="13:00">13:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="17:00">17:00</option>
-          <option value="18:00">18:00</option>
-          <option value="19:00">19:00</option>
-          <option value="20:00">20:00</option>
-          <option value="21:00">21:00</option>
-          <option value="22:00">22:00</option>
-          <option value="23:00">23:00</option>
-        </select>
-        <select data-choice-time-zone name="Часовой пояс" aria-label="Выбор часового пояса">
-          <option value="Московский">Московский</option>
-          <option value="Калининградсий">Калининградсий (МСК-1)</option>
-          <option value="Калининградсий">Самарский (МСК+1)</option>
-        </select>
       </div>
     </div>
   </div>

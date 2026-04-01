@@ -1,14 +1,21 @@
 .tabs {
   flex: 1 1 100%;
+  height: auto;
+  display: grid;
+  grid-auto-rows: min-content 1fr;
 
   &__buttons {
     @include list-reset;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 32px;
+    margin-bottom: rem(16);
 
     & li:not(:last-child) {
       margin-right: 8px;
+    }
+
+    @include media-min($lg) {
+      margin-bottom: rem(32);
     }
   }
 

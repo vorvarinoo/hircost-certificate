@@ -1,20 +1,4 @@
-<section class="quiz__screen screen" data-screen="4">
-  <div class="quiz__subtitle quiz__subtitle--03">Когда отправить</div>
-
-  <div class="quiz__top quiz__top--row quiz__top--ji-center">
-
-
-    <div class="create-design__certificate" data-checked-background>
-      <div data-certificate-image>
-        <img src="" alt="Сертификат">
-      </div>
-    </div>
-
-
-    @include('form.html', {'dataJtabs': 'delivery-date'})
-  </div>
-
-  <div>
+  <!-- <div>
     <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_11514_132415)">
@@ -47,5 +31,24 @@
         </filter>
       </defs>
     </svg>
-  </div>
-</section>
+  </div> -->
+  <section class="quiz__screen screen" data-screen="4">
+    <div class="quiz__subtitle quiz__subtitle--03 d-none d-lg-block">Когда отправить</div>
+
+    <div class="quiz__top four">
+
+
+      <div class="for__wrapper">
+        <div class="create-design__certificate for__certificate" data-checked-background>
+          <div data-certificate-image>
+            <img src="" alt="Сертификат">
+          </div>
+        </div>
+
+
+        @include('form.html', {'dataJtabs': 'delivery-date'})
+      </div>
+    </div>
+
+
+  </section>

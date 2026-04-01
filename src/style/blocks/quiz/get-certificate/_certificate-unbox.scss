@@ -1,11 +1,17 @@
 .certificate-unbox {
+  padding-top: rem(170);
+
   &__container {
-    --max-width: #{vw(1110, 1440)};
+    @include media-min($lg) {
+      --max-width: #{vw(1110, 1440)};
+      --padding-side: #{vw(240, 1440)};
+      width: min(var(--max-width), 100% - (var(--padding-side) * 2));
+      margin: 0 auto;
+    }
   }
 
   &__inner {
     position: relative;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,18 +20,27 @@
   }
 
   &__envelope {
-    transform: rotate(-10deg);
-    max-width: vw(500, 1440);
+    transform: rotate(-15deg);
     margin: 0 auto;
     z-index: 1;
+    max-width: vw(250, 375);
+
+    @include media-min($lg) {
+      max-width: vw(500, 1440);
+      transform: rotate(-10deg);
+    }
   }
 
   &__text {
-    font-weight: 400;
-    font-size: 80px;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    line-height: 1.2;
     color: #12612e;
+    font-size: 38px;
+    letter-spacing: -0.01em;
+
+    @include media-min($lg) {
+      letter-spacing: -0.01em;
+      font-size: 80px;
+    }
 
     [data-hidden] {
       opacity: 1;
@@ -49,21 +64,25 @@
   }
 
   &__foot {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 3;
-    max-width: rem(684);
-    width: 100%;
-    margin-left: auto;
-    margin-left: 50%;
-    bottom: rem(120);
+    @include media-min($lg) {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 3;
+      max-width: rem(684);
+      width: 100%;
+      margin-left: auto;
+      margin-left: 50%;
+      bottom: rem(120);
+    }
   }
 
   &__actions {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    @include media-min($lg) {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
   }
 
   &__sender {

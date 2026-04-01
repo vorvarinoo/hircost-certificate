@@ -5,6 +5,7 @@ const steps = document.querySelectorAll('.timeline__step');
 
 let currentStep = 1;
 const totalSteps = screens.length;
+let returnToStep = null;
 
 const screenItems = Array.from(screens, (screen) => {
   const screenNum = screen.dataset.screen;
@@ -20,7 +21,7 @@ const stepItems = Array.from(steps, (stepEl) => ({
   num: Number(stepEl.dataset.step),
 }));
 
-const updateUI = (step) => {
+const updateUI = (step, isEditMode = false) => {
   const activeStep = step;
 
   for (let i = 0; i < screenItems.length; i += 1) {
@@ -43,12 +44,20 @@ const updateUI = (step) => {
   }
 
   const nextButton = document.querySelector('[data-next]');
-  if (nextButton) {
-    if (step >= 5) {
-      nextButton.classList.add('hidden');
-    } else {
-      nextButton.classList.remove('hidden');
+  const saveButton = document.querySelector('[data-save]');
+
+  if (isEditMode) {
+    if (nextButton) nextButton.classList.add('hidden');
+    if (saveButton) saveButton.classList.remove('hidden');
+  } else {
+    if (nextButton) {
+      if (step >= 5) {
+        nextButton.classList.add('hidden');
+      } else {
+        nextButton.classList.remove('hidden');
+      }
     }
+    if (saveButton) saveButton.classList.add('hidden');
   }
 
   document.dispatchEvent(new CustomEvent('quiz-step-changed', { detail: { step } }));
@@ -88,7 +97,11 @@ const goToStep = (step, options = {}) => {
     }
   }
 
-  updateUI(currentStep);
+  if (options.editMode) {
+    returnToStep = currentStep;
+  }
+
+  updateUI(currentStep, options.editMode);
 };
 
 const initQuiz = () => {
@@ -117,6 +130,8 @@ const initQuiz = () => {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
         goToStep(currentStep - 1);
+      } else if (e.target.matches('[data-save]')) {
+        goToStep(returnToStep || 5, { editMode: false });
       }
     });
   }
