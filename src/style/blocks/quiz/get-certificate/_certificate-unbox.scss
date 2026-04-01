@@ -10,13 +10,33 @@
     }
   }
 
+  &__container {
+    flex-grow: 1;
+    display: grid;
+  }
+
   &__inner {
+    position: relative;
+    display: grid;
+    height: 100%;
+    grid-auto-rows: min-content 1fr;
+
+    padding: rem(40) 0;
+
+    @include media-max($lg) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    @include media-min($lg) {
+      justify-content: center;
+    }
+  }
+
+  &__content {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: rem(40) 0;
   }
 
   &__envelope {
@@ -49,17 +69,32 @@
 
     &--one {
       text-align: right;
-      right: 54%;
-      top: -9%;
-      width: max-content;
       position: absolute;
+      left: -15%;
+      bottom: 95%;
       z-index: 3;
+
+      @include media-min($lg) {
+        left: -44%;
+        bottom: 76%;
+      }
     }
 
     &--two {
-      display: inline-block;
-      margin-bottom: vh(85, 825);
-      margin-left: auto;
+      position: absolute;
+      z-index: 3;
+      bottom: -48%;
+      right: -10%;
+
+      @include media-min($lg) {
+        bottom: -31%;
+        right: -67%;
+      }
+
+      @include media-min($xxl) {
+        bottom: -19%;
+        right: -52%;
+      }
     }
   }
 
@@ -78,7 +113,17 @@
   }
 
   &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+
+    @include media-max($lg) {
+      width: 100%;
+      padding: 0 16px;
+    }
     @include media-min($lg) {
+      position: relative;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
@@ -86,10 +131,35 @@
   }
 
   &__sender {
-    margin-right: rem(78);
+    @include media-min($lg) {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 16px;
+    }
   }
 
   &__button {
-    width: rem(435);
+    width: 100%;
+
+    @include media-max($lg) {
+      margin-bottom: 14px;
+    }
+
+    @include media-min($lg) {
+      position: absolute;
+      max-width: 327px;
+      right: -70%;
+      bottom: 0;
+    }
+
+    @include media-min($xl) {
+      right: -67%;
+      max-width: 427px;
+    }
+
+    @include media-min($xxl) {
+      right: -52%;
+    }
   }
 }

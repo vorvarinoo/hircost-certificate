@@ -96,7 +96,6 @@
     z-index: 3;
     padding: rem(8);
     border-radius: 5px;
-
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5.5px);
     box-shadow: 1px 0 5px 0 rgba(17, 85, 57, 0.15);
@@ -107,6 +106,14 @@
     @include media-min($lg) {
       padding: rem(18);
       border-radius: 13px;
+      top: 60%;
+    }
+
+    & svg {
+      @include media-min($lg) {
+        width: 187px;
+        height: 24px;
+      }
     }
   }
 }
