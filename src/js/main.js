@@ -18,6 +18,7 @@ import { initCertificatePrice } from './modules/certificate-price.js';
 import { initChoices } from './modules/choices.js';
 import { initEnvelope } from './modules/envelope.js';
 import { initFormValidator } from './modules/form-validator.js';
+import { initDeliveryNote } from './modules/delivery-note.js';
 import './modules/input.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,5 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initChoices();
     initEnvelope();
     initFormValidator();
+    initDeliveryNote();
   });
 });

@@ -33,6 +33,18 @@
       font-size: 15px;
     }
   }
+
+  &__note {
+    font-size: 12px;
+    line-height: 1.32;
+    text-align: center;
+    background: linear-gradient(180deg, #323232 0%, #1a1a1a 100%);
+    background-clip: text;
+
+    @include media-min($lg) {
+      font-size: 15px;
+    }
+  }
 }
 
 .form-input {
@@ -197,11 +209,8 @@
   }
 
   &._error &__input {
-    border-color: var(--error, #bd0300);
-  }
-
-  &._error &__label {
-    color: var(--error, #bd0300);
+    outline: 1px solid #ff4b33;
+    outline-offset: 0;
   }
 }
 
