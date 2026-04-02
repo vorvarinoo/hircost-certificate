@@ -7,7 +7,8 @@ class CertificateState extends EventTarget {
     super();
     this.data = {
       design: { image: null },
-      color: null
+      color: null,
+      price: 6000
     };
   }
 

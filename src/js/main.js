@@ -15,6 +15,7 @@ import { initGetCertificateScreens } from './modules/quiz-get-certificate.js';
 import { initTabs } from './modules/tabs.js';
 import { initPriceLineDrag } from './modules/price-line-drag.js';
 import { initCertificatePrice } from './modules/certificate-price.js';
+import { initPriceSync } from './modules/price-sync.js';
 import { initChoices } from './modules/choices.js';
 import { initEnvelope } from './modules/envelope.js';
 import { initFormValidator } from './modules/form-validator.js';
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initPriceLineDrag();
     initCertificatePrice();
+    initPriceSync();
     initChoices();
     initEnvelope();
     initFormValidator();

@@ -1,3 +1,5 @@
+import certificateState from './state.js';
+
 const initCertificatePrice = () => {
   const priceDisplay = document.querySelector('[data-certificate-price]');
   const priceInputs = document.querySelectorAll('input[name="price-certificate"]');
@@ -7,6 +9,7 @@ const initCertificatePrice = () => {
   const updatePrice = (value) => {
     const formattedPrice = new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
     priceDisplay.textContent = formattedPrice;
+    certificateState.set('price', value);
   };
 
   const handlePriceChange = (e) => {
