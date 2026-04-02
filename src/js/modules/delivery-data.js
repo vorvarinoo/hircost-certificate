@@ -1,31 +1,31 @@
 import certificateState from './state.js';
 
 const getActiveDeliveryTab = () => {
-  const deliveryDateTab = document.querySelector('[data-jtabs="delivery-date"]');
-  const deliveryEditDateTab = document.querySelector('[data-jtabs="delivery-edit-date"]');
+  const deliveryDateTabs = document.querySelectorAll('[data-jtabs="delivery-date"]');
+  const deliveryEditDateTabs = document.querySelectorAll('[data-jtabs="delivery-edit-date"]');
 
-  if (!deliveryDateTab && !deliveryEditDateTab) return null;
+  const allTabs = [...deliveryDateTabs, ...deliveryEditDateTabs];
+  if (allTabs.length === 0) return null;
 
-  const activeTab = deliveryDateTab || deliveryEditDateTab;
-  if (!activeTab) return null;
+  for (const activeTab of allTabs) {
+    const panels = activeTab.querySelectorAll('[data-jtabs="panel"]');
+    if (panels.length === 0) continue;
 
-  const panels = activeTab.querySelectorAll('[data-jtabs="panel"]');
-  if (panels.length === 0) return null;
+    for (let i = 0; i < panels.length; i++) {
+      const panel = panels[i];
+      const isVisible = panel.classList.contains('is-visible');
 
-  for (let i = 0; i < panels.length; i++) {
-    const panel = panels[i];
-    const isVisible = panel.classList.contains('is-visible');
+      if (isVisible) {
+        const todayPanel = panel.querySelector('.delivery-today');
+        if (todayPanel) return { type: 'today', container: activeTab };
 
-    if (isVisible) {
-      const todayPanel = panel.querySelector('.delivery-today');
-      if (todayPanel) return 'today';
-
-      const formPanel = panel.querySelector('[date-form-delivery]');
-      if (formPanel) return 'custom';
+        const formPanel = panel.querySelector('[date-form-delivery]');
+        if (formPanel) return { type: 'custom', container: activeTab };
+      }
     }
   }
 
-  return 'today';
+  return { type: 'today', container: allTabs[0] };
 };
 
 const formatDeliveryDate = (dateString, timeString) => {
@@ -50,10 +50,10 @@ const formatDeliveryDate = (dateString, timeString) => {
 };
 
 const getDeliveryData = () => {
-  const tabType = getActiveDeliveryTab();
-  if (!tabType) return null;
+  const tabInfo = getActiveDeliveryTab();
+  if (!tabInfo) return null;
 
-  if (tabType === 'today') {
+  if (tabInfo.type === 'today') {
     return {
       type: 'today',
       date: '',
@@ -62,8 +62,9 @@ const getDeliveryData = () => {
     };
   }
 
-  const dateInput = document.querySelector('.input-data-delivery__input[data-flatpickr-time-delivery]');
-  const timeSelect = document.querySelector('select[data-choice-time-delivery]');
+  const container = tabInfo.container;
+  const dateInput = container.querySelector('.input-data-delivery__input[data-flatpickr-time-delivery]');
+  const timeSelect = container.querySelector('select[data-choice-time-delivery]');
 
   let dateValue = '';
   if (dateInput && dateInput._flatpickr) {
@@ -75,7 +76,7 @@ const getDeliveryData = () => {
 
   const timeValue = timeSelect?.value || '12:00';
 
-  console.log('getDeliveryData: custom tab', { dateValue, timeValue });
+  console.log('getDeliveryData: custom tab', { dateValue, timeValue, container: container.className });
 
   return {
     type: 'custom',
@@ -106,8 +107,8 @@ const updateDeliveryDisplay = () => {
 };
 
 const observeDeliveryChanges = () => {
-  const deliveryDateTab = document.querySelector('[data-jtabs="delivery-date"]');
-  const deliveryEditDateTab = document.querySelector('[data-jtabs="delivery-edit-date"]');
+  const deliveryDateTabs = document.querySelectorAll('[data-jtabs="delivery-date"]');
+  const deliveryEditDateTabs = document.querySelectorAll('[data-jtabs="delivery-edit-date"]');
 
   const observer = new MutationObserver(() => {
     console.log('Tab changed, updating delivery data');
@@ -123,27 +124,30 @@ const observeDeliveryChanges = () => {
     });
   };
 
-  observeTabButtons(deliveryDateTab);
-  observeTabButtons(deliveryEditDateTab);
+  deliveryDateTabs.forEach(tab => observeTabButtons(tab));
+  deliveryEditDateTabs.forEach(tab => observeTabButtons(tab));
 
-  const dateInput = document.querySelector('.input-data-delivery__input[data-flatpickr-time-delivery]');
-  const timeSelect = document.querySelector('select[data-choice-time-delivery]');
+  const allTabs = [...deliveryDateTabs, ...deliveryEditDateTabs];
+  allTabs.forEach(tab => {
+    const dateInput = tab.querySelector('.input-data-delivery__input[data-flatpickr-time-delivery]');
+    const timeSelect = tab.querySelector('select[data-choice-time-delivery]');
 
-  if (dateInput && dateInput._flatpickr) {
-    dateInput._flatpickr.config.onChange.push((selectedDates, dateStr, instance) => {
-      console.log('Flatpickr date changed:', dateStr);
-      saveDeliveryData();
-      updateDeliveryDisplay();
-    });
-  }
+    if (dateInput && dateInput._flatpickr) {
+      dateInput._flatpickr.config.onChange.push((selectedDates, dateStr, instance) => {
+        console.log('Flatpickr date changed:', dateStr);
+        saveDeliveryData();
+        updateDeliveryDisplay();
+      });
+    }
 
-  if (timeSelect) {
-    timeSelect.addEventListener('change', () => {
-      console.log('Time select changed:', timeSelect.value);
-      saveDeliveryData();
-      updateDeliveryDisplay();
-    });
-  }
+    if (timeSelect) {
+      timeSelect.addEventListener('change', () => {
+        console.log('Time select changed:', timeSelect.value);
+        saveDeliveryData();
+        updateDeliveryDisplay();
+      });
+    }
+  });
 };
 
 const initDeliveryData = () => {
