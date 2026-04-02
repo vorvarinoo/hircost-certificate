@@ -100,6 +100,15 @@ const goToStep = (step, options = {}) => {
     }
   }
 
+  if (step === 3) {
+    const contentBlock = document.querySelector('.three__content');
+    if (contentBlock) {
+      const isEdit = options.editMode ?? false;
+      contentBlock.classList.toggle('three__content--edit', isEdit);
+      contentBlock.classList.toggle('three__content--main', !isEdit);
+    }
+  }
+
   if (step === 4) {
     const viewBlock = document.querySelector('[data-delivery-view]');
     const editBlock = document.querySelector('[data-delivery-edit]');
@@ -136,7 +145,7 @@ const initQuiz = () => {
   if (quizContainer) {
     quizContainer.addEventListener('click', (e) => {
       if (e.target.matches('[data-edit-client]')) {
-        goToStep(3);
+        goToStep(3, { editMode: true });
       } else if (e.target.matches('[data-edit-order]')) {
         goToStep(2, { editMode: true });
       } else if (e.target.matches('[data-next]')) {
