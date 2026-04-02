@@ -2,6 +2,9 @@
 
 This document provides essential information for agentic coding tools working in this repository.
 
+## Communication
+**IMPORTANT: Always communicate with the user in Russian.** All responses, explanations, and messages must be in Russian.
+
 ## Build, Lint, and Test Commands
 
 ### npm scripts
@@ -26,8 +29,9 @@ This document provides essential information for agentic coding tools working in
 
 ### JavaScript
 - **Module system**: ES6 modules (`import`/`export`)
+- **Language version**: ES2020 (defined in `.eslintrc`)
 - **Indentation**: 2 spaces (enforced by .editorconfig)
-- **Quotes**: Single quotes (`'`) - enforced by ESLint
+- **Quotes**: Single quotes (`'`) - enforced by ESLint + Prettier
 - **Semicolons**: Required - enforced by ESLint
 - **Naming conventions**:
   - Variables/functions: `camelCase`
@@ -40,6 +44,8 @@ This document provides essential information for agentic coding tools working in
   3. Side-effect imports last
 - **Error handling**: Use try-catch for async operations; pass meaningful errors
 - **Global objects**: Library globals declared in `.eslintrc` (lines 11-19)
+  - Available globals: `AcceptCookiePopup`, `baguetteBox`, `HystModal`, `JustPhoneMask`, `JustValidate`, `SmoothScroll`, `Swiper`
+  - Vendor libraries: accept-cookie-popup, baguettebox.js, bs-grid, choices.js, flatpickr, focus-visible, hystmodal, imask, just-phone-mask, just-validate, justtabs, normalize.css, smooth-scroll, swiper
 - **Code style**: No alerts, limited console (warn/error only), no trailing spaces
 
 ### SCSS/CSS
@@ -53,6 +59,7 @@ This document provides essential information for agentic coding tools working in
 - **Nesting**: Limit to 3 levels
 - **Comments**: Use `//` for SCSS, `/* */` for CSS output
 - **Color notation**: Long hex, legacy functions, number alpha notation
+- **Vendor CSS**: Import vendor stylesheets via `libsCss.js` module
 
 ### HTML
 - **Template includes**: Use `@include('html/path/file.html')` for partials
@@ -66,11 +73,15 @@ This document provides essential information for agentic coding tools working in
 src/
 ├── js/
 │   ├── main.js                 # Entry point
-│   └── modules/                # Feature modules
+│   └── modules/                # Feature modules (25+ files)
 │       ├── modal.js
 │       ├── slider.js
-│       ├── utils.js
-│       └── configs.js          # Configuration objects
+│       ├── quiz.js             # Quiz functionality
+│       ├── validate.js         # Form validation
+│       ├── utils.js            # Utility functions
+│       ├── configs.js          # Configuration objects
+│       ├── libsCss.js          # Vendor CSS imports
+│       └── ...                 # (certificate, delivery, price, etc.)
 ├── style/
 │   ├── _vars.scss              # CSS custom properties + SCSS vars
 │   ├── _mixins.scss            # Reusable mixins
@@ -89,11 +100,18 @@ src/
 │   ├── static/                 # Images processed by webpack
 │   └── sprite/                 # SVG sprites (auto-generated)
 └── vendor/                     # Third-party libraries
+
+inc/                            # Gulp task files
+├── webpack.mjs                 # Webpack configuration
+├── html.mjs                    # HTML processing
+├── images.mjs                  # Image optimization
+└── ...                         # (assets, clean, html-static)
 ```
 
 ## Configuration Files
 - **.eslintrc**: ESLint rules (extends eslint:recommended)
 - **.stylelintrc.json**: Stylelint with standard-scss preset
+- **.prettierrc**: Code formatter (single quotes)
 - **.editorconfig**: Indentation (2 spaces), line endings (LF), UTF-8
 - **gulpfile.js**: Build system using ES modules
 

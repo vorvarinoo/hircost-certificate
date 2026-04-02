@@ -9,6 +9,7 @@ import { initSiteSettings } from './modules/settings.js';
 import { initModals } from './modules/modal.js';
 import { initSliders } from './modules/slider.js';
 import { initColorsScroll } from './modules/colors-scroll.js';
+import { initPriceScroll } from './modules/price-scroll.js';
 import { validateForms } from './modules/validate.js';
 import { initQuiz } from './modules/quiz.js';
 import { initGetCertificateScreens } from './modules/quiz-get-certificate.js';
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();
     initSliders();
     initColorsScroll();
+    initPriceScroll();
     initQuiz();
     initGetCertificateScreens();
     initTabs();
