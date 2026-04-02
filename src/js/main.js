@@ -21,6 +21,7 @@ import { initEnvelope } from './modules/envelope.js';
 import { initFormValidator } from './modules/form-validator.js';
 import { initDeliveryNote } from './modules/delivery-note.js';
 import { initRecipientData } from './modules/recipient-data.js';
+import { initDeliveryTodayDate } from './modules/delivery-today-date.js';
 import './modules/input.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,5 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormValidator();
     initDeliveryNote();
     initRecipientData();
+    initDeliveryTodayDate();
   });
 });
