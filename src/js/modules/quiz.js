@@ -1,4 +1,5 @@
 import certificateState from './state.js';
+import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -6,6 +7,7 @@ const steps = document.querySelectorAll('.timeline__step');
 let currentStep = 1;
 const totalSteps = screens.length;
 let returnToStep = null;
+let isInEditMode = false;
 
 const screenItems = Array.from(screens, (screen) => {
   const screenNum = screen.dataset.screen;
@@ -21,7 +23,8 @@ const stepItems = Array.from(steps, (stepEl) => ({
   num: Number(stepEl.dataset.step),
 }));
 
-const updateUI = (step, isEditMode = false) => {
+const updateUI = (step, editMode = false) => {
+  isInEditMode = editMode;
   const activeStep = step;
 
   for (let i = 0; i < screenItems.length; i += 1) {
@@ -46,7 +49,7 @@ const updateUI = (step, isEditMode = false) => {
   const nextButton = document.querySelector('[data-next]');
   const saveButton = document.querySelector('[data-save]');
 
-  if (isEditMode) {
+  if (editMode) {
     if (nextButton) nextButton.classList.add('hidden');
     if (saveButton) saveButton.classList.add('is-visible');
   } else {
@@ -96,6 +99,9 @@ const goToStep = (step, options = {}) => {
       const isEdit = options.editMode ?? false;
       viewBlock.classList.toggle('hidden', isEdit);
       editBlock.classList.toggle('hidden', !isEdit);
+      if (isEdit) {
+        prepareForEdit();
+      }
     }
   }
 
@@ -141,8 +147,14 @@ const initQuiz = () => {
       } else if (e.target.matches('[data-next]')) {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
-        goToStep(currentStep - 1);
+        if (isInEditMode) {
+          rollbackPrice();
+          goToStep(returnToStep || 5, { editMode: false });
+        } else {
+          goToStep(currentStep - 1);
+        }
       } else if (e.target.matches('[data-save]')) {
+        applyPrice();
         goToStep(returnToStep || 5, { editMode: false });
       }
     });
