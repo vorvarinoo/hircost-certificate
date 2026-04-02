@@ -35,16 +35,35 @@
 
 
 <section class="quiz__screen screen" data-screen="2">
-  <div data-delivery-view class="quiz__content">
+  <div data-delivery-view class="quiz__content two">
     <div class="quiz__subtitle mb-4 d-none d-lg-block">Выберите номинал</div>
-    <div class="quiz__top quiz__top--ai-center quiz__top--grow-0">
+    <div class="quiz__top quiz__top--ai-center quiz__top--grow-0 two__certificate">
       <div class="create-design__certificate create-design__certificate--max-width" data-checked-background>
         <div data-certificate-image>
           <img src="" alt="Сертификат">
         </div>
       </div>
     </div>
-    @include('price.html')
+
+    <div class="price-count d-lg-none" data-certificate-price>6000</div>
+
+    <div class="price-wrapper">
+      <div class="price-wrapper__note">Сколько вы хотите подарить?</div>
+
+      <div class="price-buttons">
+        <div class="d-lg-none">
+          <svg width="7" height="11" aria-hidden="true">
+            <use xlink:href="assets/img/sprite.svg#slider-prev"></use>
+          </svg>
+        </div>
+
+        <div class="d-lg-none">
+          <svg width="7" height="11" aria-hidden="true">
+            <use xlink:href="assets/img/sprite.svg#slider-next"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div data-delivery-edit class="quiz__content">
@@ -52,13 +71,13 @@
     <div class="delivery-edit mb-3 mb-lg-5">
       @include('../04section/form.html', {'dataJtabs': 'delivery-edit-date'})
     </div>
+
     <div class="quiz__subtitle mb-1 d-flex justify-content-center d-lg-none">
       Сертификат на сумму
     </div>
-    <div class="d-flex justify-content-center">
 
-      @include('price-line.html')
-    </div>
   </div>
+
+  @include('price.html')
 
 </section>

@@ -5,7 +5,6 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1;
-  padding-top: 40px;
 
   @include media-min($lg) {
     --max-width: #{vw(992, 1440)};
@@ -14,32 +13,6 @@
     margin: 0 auto;
     margin-top: auto;
     margin-bottom: rem(30);
-  }
-
-  &__count {
-    text-align: center;
-    font-size: 38px;
-    color: var(--black);
-    margin-bottom: rem(16);
-  }
-
-  &__wrapper {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: rem(40);
-    padding: 0 rem(20);
-
-    @include media-min($lg) {
-      width: auto;
-      padding: 0;
-    }
-  }
-  &__note {
-    font-size: 20px;
-    text-align: center;
-    color: #3e3b3a;
   }
 }
 .price-line {
@@ -121,4 +94,40 @@
     align-items: center;
     cursor: pointer;
   }
+}
+
+.price-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: rem(40);
+  padding: 0 rem(20);
+
+  @include media-min($lg) {
+    margin-top: auto;
+    justify-content: center;
+    width: auto;
+    padding: 0;
+  }
+  &__note {
+    font-size: 20px;
+    text-align: center;
+    color: #3e3b3a;
+  }
+}
+
+[data-delivery-edit] {
+  flex-grow: 0;
+}
+
+[data-delivery-edit] ~ .price {
+  margin-top: 0;
+}
+
+.price-count {
+  text-align: center;
+  font-size: 38px;
+  color: var(--black);
+  margin-bottom: rem(16);
 }
