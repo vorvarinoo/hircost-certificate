@@ -160,9 +160,9 @@ const initQuiz = () => {
           const activePanel = currentScreen.querySelector('[data-jtabs="panel"].is-visible');
 
           if (activePanel) {
-            const recipientForm = activePanel.querySelector('[data-form-recipient]');
-            if (recipientForm) {
-              const isValid = validateSingleForm(recipientForm);
+            const form = activePanel.querySelector('[data-form-recipient], [data-form-self]');
+            if (form) {
+              const isValid = validateSingleForm(form);
               if (!isValid) {
                 return;
               }
