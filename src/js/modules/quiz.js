@@ -1,6 +1,5 @@
 import certificateState from './state.js';
 import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
-import { prepareForEditRecipient, applyRecipientData, rollbackRecipientData } from './recipient-data.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -88,19 +87,6 @@ const goToStep = (step, options = {}) => {
 
   currentStep = step;
 
-  if (step === 3) {
-    const viewBlock = document.querySelector('[data-recipient-view]');
-    const editBlock = document.querySelector('[data-recipient-edit]');
-    if (viewBlock && editBlock) {
-      const isEdit = options.editMode ?? false;
-      viewBlock.classList.toggle('hidden', isEdit);
-      editBlock.classList.toggle('hidden', !isEdit);
-      if (isEdit) {
-        prepareForEditRecipient();
-      }
-    }
-  }
-
   if (step === 2) {
     const viewBlock = document.querySelector('[data-delivery-view]');
     const editBlock = document.querySelector('[data-delivery-edit]');
@@ -150,7 +136,7 @@ const initQuiz = () => {
   if (quizContainer) {
     quizContainer.addEventListener('click', (e) => {
       if (e.target.matches('[data-edit-client]')) {
-        goToStep(3, { editMode: true });
+        goToStep(3);
       } else if (e.target.matches('[data-edit-order]')) {
         goToStep(2, { editMode: true });
       } else if (e.target.matches('[data-next]')) {
@@ -159,8 +145,6 @@ const initQuiz = () => {
         if (isInEditMode) {
           if (currentStep === 2) {
             rollbackPrice();
-          } else if (currentStep === 3) {
-            rollbackRecipientData();
           }
           goToStep(returnToStep || 5, { editMode: false });
         } else {
@@ -169,8 +153,6 @@ const initQuiz = () => {
       } else if (e.target.matches('[data-save]')) {
         if (currentStep === 2) {
           applyPrice();
-        } else if (currentStep === 3) {
-          applyRecipientData();
         }
         goToStep(returnToStep || 5, { editMode: false });
       }

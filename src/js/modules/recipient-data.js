@@ -1,13 +1,6 @@
 import certificateState from './state.js';
 
 let currentTab = 'self';
-let tempRecipientData = null;
-let savedRecipientData = null;
-
-const isEditMode = () => {
-  const editBlock = document.querySelector('[data-recipient-edit]');
-  return editBlock && !editBlock.classList.contains('hidden');
-};
 
 const getActiveTab = () => {
   const selfTab = document.querySelector('[data-jtabs="recipient-contacts"]');
@@ -73,15 +66,11 @@ const saveRecipientData = () => {
   const data = getRecipientData();
   if (!data) return;
 
-  if (isEditMode()) {
-    tempRecipientData = { ...data };
-  } else {
-    certificateState.set('recipient.type', data.type);
-    certificateState.set('recipient.name', data.name);
-    certificateState.set('recipient.phone', data.phone);
-    certificateState.set('recipient.wishes', data.wishes);
-    certificateState.set('recipient.from', data.from);
-  }
+  certificateState.set('recipient.type', data.type);
+  certificateState.set('recipient.name', data.name);
+  certificateState.set('recipient.phone', data.phone);
+  certificateState.set('recipient.wishes', data.wishes);
+  certificateState.set('recipient.from', data.from);
 };
 
 const updateSection5Display = () => {
@@ -179,60 +168,4 @@ const initRecipientData = () => {
   }, 100);
 };
 
-const prepareForEditRecipient = () => {
-  savedRecipientData = certificateState.getByKey('recipient');
-  tempRecipientData = null;
-};
-
-const applyRecipientData = () => {
-  if (tempRecipientData) {
-    certificateState.set('recipient.type', tempRecipientData.type);
-    certificateState.set('recipient.name', tempRecipientData.name);
-    certificateState.set('recipient.phone', tempRecipientData.phone);
-    certificateState.set('recipient.wishes', tempRecipientData.wishes);
-    certificateState.set('recipient.from', tempRecipientData.from);
-    tempRecipientData = null;
-    savedRecipientData = null;
-  }
-};
-
-const rollbackRecipientData = () => {
-  if (savedRecipientData) {
-    const inputs = [
-      'name-self', 'phone-self', 'wishes-self',
-      'name-recipient', 'phone-recipient', 'wishes-recipient', 'from-recipient'
-    ];
-
-    inputs.forEach((id) => {
-      const input = document.getElementById(id);
-      if (input) {
-        input.value = '';
-      }
-    });
-
-    if (savedRecipientData.type === 'self') {
-      const nameInput = document.getElementById('name-self');
-      const phoneInput = document.getElementById('phone-self');
-      const wishesInput = document.getElementById('wishes-self');
-
-      if (nameInput) nameInput.value = savedRecipientData.name || '';
-      if (phoneInput) phoneInput.value = savedRecipientData.phone || '';
-      if (wishesInput) wishesInput.value = savedRecipientData.wishes || '';
-    } else {
-      const nameInput = document.getElementById('name-recipient');
-      const phoneInput = document.getElementById('phone-recipient');
-      const wishesInput = document.getElementById('wishes-recipient');
-      const fromInput = document.getElementById('from-recipient');
-
-      if (nameInput) nameInput.value = savedRecipientData.name || '';
-      if (phoneInput) phoneInput.value = savedRecipientData.phone || '';
-      if (wishesInput) wishesInput.value = savedRecipientData.wishes || '';
-      if (fromInput) fromInput.value = savedRecipientData.from || '';
-    }
-
-    tempRecipientData = null;
-    savedRecipientData = null;
-  }
-};
-
-export { initRecipientData, saveRecipientData, getRecipientData, prepareForEditRecipient, applyRecipientData, rollbackRecipientData };
+export { initRecipientData, saveRecipientData, getRecipientData };

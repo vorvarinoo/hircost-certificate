@@ -81,6 +81,7 @@
     box-shadow: 0 98px 30px -76px rgba(194, 189, 243, 0.9);
     background: var(--checked-background-color);
     flex: 1 1 100%;
+    height: min-content;
 
     &--max-width {
       height: 90%;

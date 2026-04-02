@@ -38,16 +38,13 @@
     <div class="quiz__subtitle quiz__subtitle--03 d-none d-lg-block">Кому дарим</div>
     <div class="quiz__top quiz__top--row quiz__top3 three">
 
-      <div data-recipient-view class="three__content three__content--main">
+      <div class="three__content three__content--main">
         <div class="create-design__certificate three__certificate" data-checked-background>
           <div data-certificate-image>
             <img src="" alt="Сертификат">
           </div>
         </div>
         @include('form.html', {'dataJtabs': 'recipient-contacts'})
-      </div>
-      <div data-recipient-edit class="three__content three__content--edit">
-        @include('form.html', {'dataJtabs': 'recipient-edit-contacts'})
       </div>
     </div>
 
