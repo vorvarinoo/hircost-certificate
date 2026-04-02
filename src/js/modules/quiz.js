@@ -80,6 +80,11 @@ const updateUI = (step, editMode = false) => {
 
 const goToStep = (step, options = {}) => {
   if (step < 1 || step > totalSteps) return;
+
+  if (options.editMode && !options.returnToStep) {
+    options.returnToStep = currentStep;
+  }
+
   currentStep = step;
 
   if (step === 3) {
@@ -116,7 +121,7 @@ const goToStep = (step, options = {}) => {
   }
 
   if (options.editMode) {
-    returnToStep = currentStep;
+    returnToStep = options.returnToStep;
   }
 
   updateUI(currentStep, options.editMode);
