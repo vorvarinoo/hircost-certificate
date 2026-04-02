@@ -1,5 +1,6 @@
 import certificateState from './state.js';
 import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
+import { validateSingleForm } from './form-validator.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -149,6 +150,25 @@ const initQuiz = () => {
       } else if (e.target.matches('[data-edit-order]')) {
         goToStep(2, { editMode: true });
       } else if (e.target.matches('[data-next]')) {
+        if (currentStep === 3) {
+          const currentScreen = document.querySelector('.quiz__screen[data-screen="3"]');
+          if (!currentScreen) {
+            goToStep(currentStep + 1);
+            return;
+          }
+
+          const activePanel = currentScreen.querySelector('[data-jtabs="panel"].is-visible');
+
+          if (activePanel) {
+            const recipientForm = activePanel.querySelector('[data-form-recipient]');
+            if (recipientForm) {
+              const isValid = validateSingleForm(recipientForm);
+              if (!isValid) {
+                return;
+              }
+            }
+          }
+        }
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
         if (isInEditMode) {
