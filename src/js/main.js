@@ -20,6 +20,7 @@ import { initChoices } from './modules/choices.js';
 import { initEnvelope } from './modules/envelope.js';
 import { initFormValidator } from './modules/form-validator.js';
 import { initDeliveryNote } from './modules/delivery-note.js';
+import { initRecipientData } from './modules/recipient-data.js';
 import './modules/input.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,5 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initEnvelope();
     initFormValidator();
     initDeliveryNote();
+    initRecipientData();
   });
 });

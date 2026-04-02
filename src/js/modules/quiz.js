@@ -1,5 +1,6 @@
 import certificateState from './state.js';
 import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
+import { prepareForEditRecipient, applyRecipientData, rollbackRecipientData } from './recipient-data.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -94,6 +95,9 @@ const goToStep = (step, options = {}) => {
       const isEdit = options.editMode ?? false;
       viewBlock.classList.toggle('hidden', isEdit);
       editBlock.classList.toggle('hidden', !isEdit);
+      if (isEdit) {
+        prepareForEditRecipient();
+      }
     }
   }
 
@@ -153,13 +157,21 @@ const initQuiz = () => {
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
         if (isInEditMode) {
-          rollbackPrice();
+          if (currentStep === 2) {
+            rollbackPrice();
+          } else if (currentStep === 3) {
+            rollbackRecipientData();
+          }
           goToStep(returnToStep || 5, { editMode: false });
         } else {
           goToStep(currentStep - 1);
         }
       } else if (e.target.matches('[data-save]')) {
-        applyPrice();
+        if (currentStep === 2) {
+          applyPrice();
+        } else if (currentStep === 3) {
+          applyRecipientData();
+        }
         goToStep(returnToStep || 5, { editMode: false });
       }
     });

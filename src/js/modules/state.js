@@ -8,7 +8,14 @@ class CertificateState extends EventTarget {
     this.data = {
       design: { image: null },
       color: null,
-      price: 6000
+      price: 6000,
+      recipient: {
+        type: 'self',
+        name: '',
+        phone: '',
+        wishes: '',
+        from: ''
+      }
     };
   }
 
