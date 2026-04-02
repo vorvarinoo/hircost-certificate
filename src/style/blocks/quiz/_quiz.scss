@@ -27,7 +27,7 @@
       }
     }
 
-    &--five {
+    &--five.isActive {
       & ~ .create-design__navigation {
         @include media-max($lg) {
           display: none;
