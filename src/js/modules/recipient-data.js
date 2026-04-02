@@ -18,11 +18,23 @@ const getActiveTab = () => {
   const activeTab = selfTab || editTab;
   if (!activeTab) return null;
 
-  const activeButton = activeTab.querySelector('[data-jtabs="control"].is-active');
-  if (!activeButton) return 'self';
+  const panels = activeTab.querySelectorAll('[data-jtabs="panel"]');
+  if (panels.length === 0) return null;
 
-  const buttonText = activeButton.textContent.trim().toLowerCase();
-  return buttonText === 'другому' ? 'other' : 'self';
+  for (let i = 0; i < panels.length; i++) {
+    const panel = panels[i];
+    const isHidden = panel.classList.contains('hidden') || panel.style.display === 'none' || panel.offsetParent === null;
+
+    if (!isHidden) {
+      const formSelf = panel.querySelector('[data-form-self]');
+      if (formSelf) return 'self';
+
+      const formRecipient = panel.querySelector('[data-form-recipient]');
+      if (formRecipient) return 'other';
+    }
+  }
+
+  return 'self';
 };
 
 const getRecipientData = () => {
@@ -151,14 +163,20 @@ const initRecipientData = () => {
     updateSection5Display();
   });
 
-  const initialData = getRecipientData();
-  if (initialData) {
-    certificateState.set('recipient.type', initialData.type);
-    certificateState.set('recipient.name', initialData.name);
-    certificateState.set('recipient.phone', initialData.phone);
-    certificateState.set('recipient.wishes', initialData.wishes);
-    certificateState.set('recipient.from', initialData.from);
-  }
+  setTimeout(() => {
+    const initialTab = getActiveTab();
+    if (initialTab) {
+      currentTab = initialTab;
+    }
+    const initialData = getRecipientData();
+    if (initialData) {
+      certificateState.set('recipient.type', initialData.type);
+      certificateState.set('recipient.name', initialData.name);
+      certificateState.set('recipient.phone', initialData.phone);
+      certificateState.set('recipient.wishes', initialData.wishes);
+      certificateState.set('recipient.from', initialData.from);
+    }
+  }, 100);
 };
 
 const prepareForEditRecipient = () => {
