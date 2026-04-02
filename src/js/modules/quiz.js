@@ -202,6 +202,22 @@ const initQuiz = () => {
     });
   }
 
+  // Обработка мобильной кнопки "Назад" в хедере
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-mobile-prev]');
+    if (!btn) return;
+
+    if (isInEditMode) {
+      if (currentStep === 2) {
+        rollbackPrice();
+        rollbackDelivery();
+      }
+      goToStep(returnToStep || 5, { editMode: false });
+    } else {
+      goToStep(currentStep - 1);
+    }
+  });
+
   // Отслеживание выбора цвета - сохраняем в state
   document.addEventListener('change', (e) => {
     const input = e.target;
