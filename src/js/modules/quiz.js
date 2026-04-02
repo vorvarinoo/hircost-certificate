@@ -1,6 +1,7 @@
 import certificateState from './state.js';
 import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
 import { validateSingleForm } from './form-validator.js';
+import { saveRecipientData, updateSection5Display } from './recipient-data.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -168,6 +169,11 @@ const initQuiz = () => {
               }
             }
           }
+
+          if (!isInEditMode) {
+            saveRecipientData();
+            updateSection5Display();
+          }
         }
         goToStep(currentStep + 1);
       } else if (e.target.matches('[data-prev]')) {
@@ -182,6 +188,10 @@ const initQuiz = () => {
       } else if (e.target.matches('[data-save]')) {
         if (currentStep === 2) {
           applyPrice();
+        }
+        if (currentStep === 3) {
+          saveRecipientData();
+          updateSection5Display();
         }
         goToStep(returnToStep || 5, { editMode: false });
       }

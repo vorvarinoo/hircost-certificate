@@ -94,11 +94,6 @@ const updateSection5Display = () => {
   }
 };
 
-const handleInputChange = () => {
-  saveRecipientData();
-  updateSection5Display();
-};
-
 const observeTabChanges = () => {
   const selfTab = document.querySelector('[data-jtabs="recipient-contacts"]');
   const editTab = document.querySelector('[data-jtabs="recipient-edit-contacts"]');
@@ -107,7 +102,6 @@ const observeTabChanges = () => {
     const newTab = getActiveTab();
     if (newTab && newTab !== currentTab) {
       currentTab = newTab;
-      handleInputChange();
     }
   });
 
@@ -127,19 +121,6 @@ const observeTabChanges = () => {
 };
 
 const initRecipientData = () => {
-  const inputs = [
-    'name-self', 'phone-self', 'wishes-self',
-    'name-recipient', 'phone-recipient', 'wishes-recipient', 'from-recipient'
-  ];
-
-  inputs.forEach((id) => {
-    const input = document.getElementById(id);
-    if (input) {
-      input.addEventListener('input', handleInputChange);
-      input.addEventListener('change', handleInputChange);
-    }
-  });
-
   observeTabChanges();
 
   document.addEventListener('quiz-step-changed', (e) => {
@@ -151,21 +132,6 @@ const initRecipientData = () => {
   certificateState.addEventListener('change', () => {
     updateSection5Display();
   });
-
-  setTimeout(() => {
-    const initialTab = getActiveTab();
-    if (initialTab) {
-      currentTab = initialTab;
-    }
-    const initialData = getRecipientData();
-    if (initialData) {
-      certificateState.set('recipient.type', initialData.type);
-      certificateState.set('recipient.name', initialData.name);
-      certificateState.set('recipient.phone', initialData.phone);
-      certificateState.set('recipient.wishes', initialData.wishes);
-      certificateState.set('recipient.from', initialData.from);
-    }
-  }, 100);
 };
 
-export { initRecipientData, saveRecipientData, getRecipientData };
+export { initRecipientData, saveRecipientData, getRecipientData, updateSection5Display };
