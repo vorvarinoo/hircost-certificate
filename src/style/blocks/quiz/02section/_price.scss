@@ -5,6 +5,7 @@
   box-sizing: border-box;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
   @include media-min($lg) {
     --max-width: #{vw(992, 1440)};

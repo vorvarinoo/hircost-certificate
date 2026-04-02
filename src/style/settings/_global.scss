@@ -87,3 +87,19 @@ img {
 .input-data-delivery__input {
   text-align: left;
 }
+
+.background-quiz {
+  display: none;
+}
+
+.quiz:has([data-screen='2'].isActive) .background-quiz,
+.quiz:has([data-screen='3'].isActive) .background-quiz,
+.quiz:has([data-screen='4'].isActive) .background-quiz,
+.quiz:has([data-screen='5'].isActive) .background-quiz {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
