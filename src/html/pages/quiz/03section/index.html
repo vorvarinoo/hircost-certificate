@@ -1,4 +1,5 @@
-  <!-- <div>
+<section class="quiz__screen screen" data-screen="3">
+  <div>
     <svg class="background2-1" width="850" height="775" viewBox="0 0 850 775" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <g filter="url(#filter0_f_11514_132415)">
@@ -31,21 +32,18 @@
         </filter>
       </defs>
     </svg>
-  </div> -->
+  </div>
+  <div class="quiz__subtitle quiz__subtitle--03 d-none d-lg-block">Кому дарим</div>
+  <div class="quiz__top quiz__top--row quiz__top3 three">
 
-  <section class="quiz__screen screen" data-screen="3">
-
-    <div class="quiz__subtitle quiz__subtitle--03 d-none d-lg-block">Кому дарим</div>
-    <div class="quiz__top quiz__top--row quiz__top3 three">
-
-      <div class="three__content three__content--main">
-        <div class="create-design__certificate three__certificate" data-checked-background>
-          <div data-certificate-image>
-            <img src="" alt="Сертификат">
-          </div>
+    <div class="three__content three__content--main">
+      <div class="create-design__certificate three__certificate" data-checked-background>
+        <div data-certificate-image>
+          <img src="" alt="Сертификат">
         </div>
-        @include('form.html', {'dataJtabs': 'recipient-contacts'})
       </div>
+      @include('form.html', {'dataJtabs': 'recipient-contacts'})
     </div>
+  </div>
 
-  </section>
+</section>

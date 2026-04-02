@@ -2,6 +2,7 @@ import certificateState from './state.js';
 import { prepareForEdit, applyPrice, rollbackPrice } from './certificate-price.js';
 import { validateSingleForm } from './form-validator.js';
 import { saveRecipientData, updateSection5Display } from './recipient-data.js';
+import { prepareDeliveryEdit, rollbackDelivery, applyDelivery } from './delivery-data.js';
 
 const screens = document.querySelectorAll('.quiz__screen.screen');
 const steps = document.querySelectorAll('.timeline__step');
@@ -98,6 +99,7 @@ const goToStep = (step, options = {}) => {
       editBlock.classList.toggle('hidden', !isEdit);
       if (isEdit) {
         prepareForEdit();
+        prepareDeliveryEdit();
       }
     }
   }
@@ -180,6 +182,7 @@ const initQuiz = () => {
         if (isInEditMode) {
           if (currentStep === 2) {
             rollbackPrice();
+            rollbackDelivery();
           }
           goToStep(returnToStep || 5, { editMode: false });
         } else {
@@ -188,6 +191,7 @@ const initQuiz = () => {
       } else if (e.target.matches('[data-save]')) {
         if (currentStep === 2) {
           applyPrice();
+          applyDelivery();
         }
         if (currentStep === 3) {
           saveRecipientData();

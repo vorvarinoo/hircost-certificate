@@ -26,12 +26,22 @@
         flex-grow: 1;
       }
     }
+
+    &--five {
+      & ~ .create-design__navigation {
+        @include media-max($lg) {
+          display: none;
+        }
+      }
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    position: relative;
+    z-index: 2;
 
     &.hidden {
       display: none;
