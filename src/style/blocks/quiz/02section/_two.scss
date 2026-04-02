@@ -1,0 +1,8 @@
+.two {
+  @include media-max($lg) {
+    flex-grow: 0;
+  }
+  &__certificate {
+    margin-bottom: 40px;
+  }
+}
