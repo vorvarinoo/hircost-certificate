@@ -15,6 +15,12 @@ class CertificateState extends EventTarget {
         phone: '',
         wishes: '',
         from: ''
+      },
+      delivery: {
+        type: 'today',
+        date: '',
+        time: '12:00',
+        formattedDate: ''
       }
     };
   }

@@ -16,9 +16,9 @@ const getActiveTab = () => {
 
   for (let i = 0; i < panels.length; i++) {
     const panel = panels[i];
-    const isHidden = panel.classList.contains('hidden') || panel.style.display === 'none' || panel.offsetParent === null;
+    const isVisible = panel.classList.contains('is-visible');
 
-    if (!isHidden) {
+    if (isVisible) {
       const formSelf = panel.querySelector('[data-form-self]');
       if (formSelf) return 'self';
 
