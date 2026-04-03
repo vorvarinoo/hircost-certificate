@@ -92,7 +92,10 @@ img {
 }
 
 .input-data-delivery {
-  text-align: left;
+  text-align: left !important;
+  &__input {
+    text-align: left !important;
+  }
 }
 
 .choices[data-type*='select-one']::after {
