@@ -93,8 +93,15 @@ img {
 
 .input-data-delivery {
   text-align: left !important;
+  justify-items: flex-start;
+  text-align-last: left !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
   &__input {
     text-align: left !important;
+    text-align-last: left !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
   }
 }
 
