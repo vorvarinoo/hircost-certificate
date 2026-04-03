@@ -16,8 +16,8 @@ const initEnvelope = () => {
     const hiddenElements = document.querySelectorAll('[data-hidden]');
     hiddenElements.forEach(el => el.classList.add('hidden'));
 
-    const video = document.querySelector('.video-bg');
-    if (video) {
+    const video = document.querySelector('.video-bg video');
+    if (video && video.tagName === 'VIDEO') {
       video.play().catch(err => {
         console.warn('Video autoplay prevented:', err);
       });

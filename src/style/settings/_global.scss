@@ -61,12 +61,19 @@ img {
 }
 
 .video-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  right: 0;
+  overflow: hidden;
+  height: 100dvh;
+
+  & video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .link-social {
@@ -111,6 +118,10 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  &--color {
+    background-color: #f3f2ff;
+  }
+
   &__desktop {
     position: absolute;
     display: none;
