@@ -18,7 +18,7 @@ const initPriceLineDrag = () => {
       e.preventDefault();
 
       const x = e.pageX - priceLine.offsetLeft;
-      const walk = (x - startX) * 1.5;
+      const walk = (x - startX) * 1.0;
       priceLine.scrollLeft = scrollLeft - walk;
     };
 
@@ -38,7 +38,7 @@ const initPriceLineDrag = () => {
       if (!isDragging) return;
 
       const x = e.touches[0].pageX - priceLine.offsetLeft;
-      const walk = (x - startX) * 1.5;
+      const walk = (x - startX) * 1.0;
       priceLine.scrollLeft = scrollLeft - walk;
     };
 
