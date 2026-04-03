@@ -105,13 +105,14 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: rem(40);
+  margin-bottom: rem(16);
   padding: 0 rem(20);
 
   @include media-min($lg) {
     margin-top: auto;
     justify-content: center;
     width: auto;
+    margin-bottom: rem(40);
     padding: 0;
   }
   &__note {
