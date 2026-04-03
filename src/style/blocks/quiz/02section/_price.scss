@@ -39,6 +39,7 @@
 
   &--grabbing {
     cursor: grabbing;
+    scroll-behavior: auto;
   }
 
   &__list {
