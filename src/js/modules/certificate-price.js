@@ -16,6 +16,8 @@ const updatePriceDisplay = (value) => {
 };
 
 const handlePriceChange = (e) => {
+  e.preventDefault();
+
   const value = e.target.value;
 
   if (isEditMode()) {
@@ -54,6 +56,34 @@ const rollbackPrice = () => {
   }
 };
 
+const centerSelectedPriceOnMobile = () => {
+  const isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+  if (!isMobile) return;
+
+  const priceLine = document.querySelector('.price-line');
+  const checkedInput = document.querySelector('input[name="price-certificate"]:checked');
+
+  if (!priceLine || !checkedInput) return;
+
+  const item = checkedInput.closest('.price-line__item');
+  if (!item) return;
+
+  const computedStyle = window.getComputedStyle(priceLine);
+  const paddingLeft = parseFloat(computedStyle.paddingLeft);
+
+  const itemLeft = item.offsetLeft;
+  const itemWidth = item.offsetWidth;
+  const containerWidth = priceLine.clientWidth;
+
+  const scrollPosition = itemLeft - (containerWidth / 2) + (itemWidth / 2) + paddingLeft;
+
+  priceLine.scrollTo({
+    left: scrollPosition,
+    top: 0,
+    behavior: 'auto'
+  });
+};
+
 const initCertificatePrice = () => {
   const priceInputs = document.querySelectorAll('input[name="price-certificate"]');
 
@@ -69,6 +99,12 @@ const initCertificatePrice = () => {
     certificateState.set('price', value);
     updatePriceDisplay(value);
   }
+
+  document.addEventListener('quiz-step-changed', (e) => {
+    if (e.detail.step === 2) {
+      centerSelectedPriceOnMobile();
+    }
+  });
 };
 
 export { initCertificatePrice, applyPrice, rollbackPrice, prepareForEdit };

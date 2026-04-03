@@ -103,3 +103,49 @@ img {
   width: 100%;
   height: 100%;
 }
+
+.background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  &__desktop {
+    position: absolute;
+    display: none;
+    @include media-min($lg) {
+      display: block;
+    }
+
+    &--one {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 5%;
+    }
+
+    &--two {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__mobile {
+    position: absolute;
+    display: block;
+    @include media-min($lg) {
+      display: none;
+    }
+
+    &--one {
+      top: 10%;
+      left: 0;
+    }
+
+    &--two {
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
