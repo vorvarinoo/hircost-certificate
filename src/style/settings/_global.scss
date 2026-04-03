@@ -91,8 +91,21 @@ img {
   z-index: 3;
 }
 
-.input-data-delivery__input {
+.input-data-delivery {
   text-align: left;
+}
+
+.choices[data-type*='select-one']::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.0335 0.700195L5.36686 5.36686L0.700195 0.700195' stroke='black' stroke-opacity='0.4' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+  background-repeat: none;
+  width: 11px;
+  height: 7px;
+  border-style: none;
+  border-color: transparent;
+}
+
+.choices.is-open[data-type*='select-one']::after {
+  background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.69987 5.36621L5.36654 0.699544L10.0332 5.36621' stroke='black' stroke-opacity='0.4' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 }
 
 .background-quiz {
